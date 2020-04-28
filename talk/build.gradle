@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig { 
+//        applicationId "com.kylindev.totalk"
+        /*if the versions change to 18/18, then bluetooth headset can't end sco connection*/
+        minSdkVersion 16
+        /*???????????targetSdkVersion??23?MINU?Android6.0????????APP????????targetSdkVersion??22??? */
+        targetSdkVersion 28
+        versionCode 94
+        versionName "2.2.9.1"
+        //横屏版APP
+       // manifestPlaceholders = [screenType:"landscape"]
+        //竖屏版APP
+        manifestPlaceholders = [screenType:"portrait"]
+    }
+//    buildTypes {
+//        release {
+//            minifyEnabled true
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            applicationVariants.all { variant ->
+//                variant.outputs.all { output ->
+//                    outputFileName = "${'Totalk'}_${variant.versionName}.apk"
+//                }
+//            }
+//        }
+//    }
+
+    productFlavors {
+    }
+
+    signingConfigs {
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+//    sourceSets {
+//        main {
+//            jniLibs.srcDir(['libs'])
+//        }
+//    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.+'
+    implementation 'com.android.support:recyclerview-v7:27.+'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation files('libs/BaiduLBS_Android.jar')
+}

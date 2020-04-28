@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white" >
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical" >
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="10dp" />
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_set_sms_content"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/sms"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/call_sms_text"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_call_about"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/callhelp"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/alert_call_about"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_call_reboot"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/rebootcall"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/alert_call_reboot"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content"   
+	android:orientation="vertical"
+	android:padding="@dimen/padding_left_right" >
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="10dp" />
+
+		<EditText 
+		   	android:id="@+id/et_channel_name"
+			android:singleLine="true"
+			android:hint="@string/channel_name"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+			android:layout_width="match_parent"
+		    android:layout_height="@dimen/row_height"
+		    android:textSize="@dimen/text_size_small2"
+			android:background="@drawable/shape_et_bg" />
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="10dp" />
+		<EditText 
+		   	android:id="@+id/et_channel_pwd1"
+			android:singleLine="true"
+			android:layout_width="match_parent"
+		    android:layout_height="@dimen/row_height"
+		    android:maxLength="4"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+		    android:hint="@string/channel_pwd"
+		    android:inputType="number"
+		    android:textSize="@dimen/text_size_small2"
+		    android:background="@drawable/shape_et_bg" />
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="10dp" />
+
+		<LinearLayout
+			android:id="@+id/ll_searchable_chan"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:gravity="center_vertical"
+			style="@style/BorderlessButton" >
+			<ImageView
+				android:id="@+id/iv_searchable_chan"
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:src="@drawable/checkbox_off"
+				/>
+			<TextView
+				android:singleLine="true"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/searchable_chan"
+				android:textSize="@dimen/text_size_small2" />
+			<TextView
+				style="@style/layout_horizontal"
+				android:layout_weight="1"/>
+		</LinearLayout>
+	<LinearLayout
+		android:id="@+id/ll_need_apply"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:gravity="center_vertical"
+		style="@style/BorderlessButton" >
+		<ImageView
+			android:id="@+id/iv_need_apply"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:src="@drawable/checkbox_off"
+			/>
+		<TextView
+			android:singleLine="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/need_apply"
+			android:textSize="@dimen/text_size_small2" />
+		<TextView
+			style="@style/layout_horizontal"
+			android:layout_weight="1"/>
+	</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="10dp" />
+
+</LinearLayout> 

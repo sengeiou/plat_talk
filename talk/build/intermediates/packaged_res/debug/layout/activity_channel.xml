@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_match"
+	android:background="@color/white" >
+
+    <LinearLayout
+        style="@style/layout_match"
+        android:orientation="vertical"
+        >
+        <ListView
+            android:id="@+id/lv_pending_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </ListView>
+
+        <FrameLayout
+            style="@style/layout_match"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_tips"
+                style="@style/layout_match"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/you_have_not"
+                    android:textColor="@color/nearblack"
+                    android:textSize="@dimen/text_size_small"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:id="@+id/tv_create_channel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textSize="@dimen/text_size_small"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/or"
+                        android:textColor="@color/nearblack"
+                        android:textSize="@dimen/text_size_small"
+                        />
+                    <TextView
+                        android:id="@+id/tv_join_channel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/join"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textSize="@dimen/text_size_small"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/one"
+                        android:textColor="@color/nearblack"
+                        android:textSize="@dimen/text_size_small"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.kylindev.totalk.view.InterpttNestedListView
+                android:id="@+id/channelUsers"
+                style="@style/layout_match"
+                android:fastScrollEnabled="false"
+                android:scrollbars="none"/>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical"
+			  android:background="@color/white"
+	>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingLeft="@dimen/padding_left_right"
+				android:paddingRight="@dimen/padding_left_right"
+				android:background="@color/gray_ea"
+				android:orientation="vertical"
+				>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="10dp" />
+
+				<EditText
+					android:id="@+id/et_join_channel_id"
+					android:singleLine="true"
+					android:inputType="number"
+					android:hint="@string/channelId"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/row_height"
+					android:textSize="@dimen/text_size_small2"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+					android:background="@drawable/shape_et_bg" />
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="10dp" />
+				<EditText
+					android:id="@+id/et_join_channel_pwd"
+					android:singleLine="true"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/row_height"
+					android:maxLength="4"
+					android:inputType="number"
+					android:textSize="@dimen/text_size_small2"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp"
+					android:hint="@string/channel_pwd"
+					android:background="@drawable/shape_et_bg" />
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="10dp" />
+				<EditText
+					android:id="@+id/et_join_channel_comment"
+					android:singleLine="true"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/row_height"
+					android:maxLength="57"
+					android:textSize="@dimen/text_size_small2"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp"
+					android:hint="@string/channel_comment"
+					android:background="@drawable/shape_et_bg" />
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="25dp" />
+				<Button
+					android:id="@+id/btn_join_custom_chan"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/row_height"
+					android:layout_gravity="center"
+					android:text="@string/ok"
+					android:textSize="@dimen/text_size_small2"
+					android:textColor="@color/white"
+					android:background="@drawable/selector_btn"
+					/>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="25dp"/>
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout> 

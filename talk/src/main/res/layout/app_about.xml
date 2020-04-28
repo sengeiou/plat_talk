@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical"
+	>
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="20dp"/>
+			<ImageView
+				android:id="@+id/iv_about_slogan"
+				android:layout_width="wrap_content"
+				android:layout_height="120dp"
+				android:scaleType="centerInside"
+				android:layout_gravity="center"
+				android:src="@drawable/slogan" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>
+			<TextView
+				android:id="@+id/tv_about_version"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:textColor="@color/gray_a0" />
+			<TextView
+				android:id="@+id/tv_about_update"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:text="@string/check_update"
+				android:textColor="@color/app_blue_light"
+				android:background="@drawable/selector_transp"
+				android:textSize="@dimen/text_size_small2" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:layout_width="60dp"
+					android:layout_height="60dp">
+				</LinearLayout>
+				<LinearLayout
+					style="@style/layout_horizontal"
+					android:layout_weight="1"
+					android:orientation="vertical"
+					android:gravity="center">
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:autoLink="web"
+						android:text="@string/homepage_link"
+						android:textColor="@color/app_blue_light"
+						android:textSize="@dimen/text_size_small2" />
+					<TextView
+						android:id="@+id/tv_qq_group"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:text="@string/tvQQ"
+						android:textColor="@color/nearblack"
+						android:textSize="@dimen/text_size_small2" />
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:autoLink="web"
+						android:text="bbs.allptt.com"
+						android:textColor="@color/app_blue_light"
+						android:textSize="@dimen/text_size_small2" />
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/ll_share"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:orientation="vertical"
+					android:gravity="center"
+					android:background="@drawable/selector_transp">
+					<ImageView
+						android:layout_width="30dp"
+						android:layout_height="30dp"
+						android:background="@drawable/share"/>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/share"/>
+				</LinearLayout>
+			</LinearLayout>
+
+			<ImageView
+				android:layout_width="120dp"
+				android:layout_height="120dp"
+				android:layout_gravity="center_horizontal"
+				android:background="@drawable/barcode"/>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/scan_to_download"
+				android:gravity="center_horizontal"/>
+			<TextView
+				android:id="@+id/tv_thanks"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:paddingLeft="15dp"
+				android:paddingRight="15dp"
+				android:text="@string/thanks"
+				android:textColor="@color/gray_a0"
+				android:textSize="@dimen/text_size_small3" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

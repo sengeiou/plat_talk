@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+			//0-普通；1-手咪；2-按键；3-滔滔手机；4-蓝牙链路；5-一体链路；6-电话链路
+-->
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0"  android:drawable="@drawable/audiosource_normal" />
+    <item android:maxLevel="1"  android:drawable="@drawable/audiosource_handmic" />
+    <item android:maxLevel="2"  android:drawable="@drawable/audiosource_taobutton" />
+    <item android:maxLevel="3"  android:drawable="@drawable/audiosource_taophone" />
+    <item android:maxLevel="4"  android:drawable="@drawable/audiosource_link" />
+    <item android:maxLevel="5"  android:drawable="@drawable/audiosource_link" />
+    <item android:maxLevel="6"  android:drawable="@drawable/audiosource_calllink" />
+    <item android:maxLevel="7"  android:drawable="@drawable/audiosource_allble_handmic" />
+    <item android:maxLevel="8"  android:drawable="@drawable/audiosource_link2" />
+</level-list>

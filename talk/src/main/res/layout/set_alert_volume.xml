@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content"   
+	android:orientation="vertical"
+	android:padding="5dp" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/online"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_online"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/offline"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_offline"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/i_begin"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_i_begin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/i_stop"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_i_end"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/other_begin"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_other_begin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="wrap_content"
+			android:text="@string/other_stop"
+			android:gravity="center"
+			android:textSize="@dimen/text_size_small"/>
+		<SeekBar
+			android:id="@+id/sb_volume_other_end"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:layout_weight="1"/>
+	</LinearLayout>
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/divider_gray" />
+</LinearLayout> 

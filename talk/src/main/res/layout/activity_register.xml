@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:background="@color/gray_ea" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_height"
+        android:background="@color/nearblack" >
+		<ImageView
+		    android:id="@+id/iv_register_back"
+		    android:layout_width="@dimen/row_height"
+		    android:layout_height="@dimen/row_height"
+			android:padding="6dp"
+		    android:scaleType="centerInside"
+		    android:src="@drawable/arrow_left"
+	        style="@style/BorderlessButton"
+		/>
+		<TextView
+			android:id="@+id/tv_register_title"
+		    style="@style/layout_horizontal"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:text="@string/register_new_user"
+		    android:textColor="@color/white"
+			android:textSize="@dimen/text_size_middle"
+		/>
+		<TextView
+			android:layout_width="@dimen/row_height"
+			android:layout_height="@dimen/row_height"
+		/>		    
+	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    
+    <TextView
+	    android:id="@+id/tv_phone"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:textColor="@color/dimgray"
+		android:textSize="@dimen/text_size_small"
+		android:padding="5dp"
+	/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    
+   	<EditText
+		android:id="@+id/et_register_nickname"
+		android:layout_height="@dimen/row_height"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:singleLine="true"
+		android:hint="@string/set_nick"
+	    android:textColor="@color/nearblack"
+		android:textSize="@dimen/text_size_small2"
+		android:background="@drawable/shape_et_bg" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+   	
+	<EditText
+		android:id="@+id/et_register_password1"
+		android:layout_height="@dimen/row_height"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:inputType="textPassword"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:hint="@string/set_pwd"
+		android:singleLine="true"
+		android:textColor="@color/nearblack"
+		android:textSize="@dimen/text_size_small2"
+		android:background="@drawable/shape_et_bg" />
+    	
+	<LinearLayout
+		android:id="@+id/ll_agreement"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+		<CheckBox
+		    android:id="@+id/cb_agree_rule"
+		    android:text="@string/agree"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/dimgray"
+		    android:checked="true"
+			android:textSize="@dimen/text_size_small2"
+		/>
+		<TextView
+		    android:id="@+id/tv_rule"
+		    android:text="@string/service_rule"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/app_blue_light"
+			android:textSize="@dimen/text_size_small2"
+		/>
+			    	    
+	</LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+	    
+	<Button
+	    android:id="@+id/btn_register"
+	    android:layout_height="@dimen/row_height"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:text="@string/register"
+		android:textColor="@color/white"
+		android:textSize="@dimen/text_size_small"
+		android:enabled="false"
+		android:background="@drawable/selector_btn"/>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="25dp" />
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+		android:background="@color/white"/>
+			
+</LinearLayout>

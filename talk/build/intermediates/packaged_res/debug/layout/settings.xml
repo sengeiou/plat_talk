@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white" >
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical" >
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="10dp" />
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+			<LinearLayout
+				android:id="@+id/ll_float_btn"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_float_btn"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/enable_float_btn"
+					android:textSize="@dimen/text_size_small2" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+			<LinearLayout
+				android:id="@+id/ll_auto_launch"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_auto_launch"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/enable_auto_launch"
+					android:textSize="@dimen/text_size_small2" />
+			</LinearLayout>
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_strong_online"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_strong_online"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/more_heartbeat"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:id="@+id/iv_more_heartbeat_help"
+					android:src="@drawable/help"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_headset_key"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_headset_key"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/support_headset_key"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:id="@+id/iv_headset_help"
+					android:src="@drawable/help"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_forbid_bt_mic"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_forbid_bt_mic"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/forbid_bt_record"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:id="@+id/iv_bt_mic_help"
+					android:src="@drawable/help"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_ptt_key"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/ptt_key"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/ptt_key_def"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<TextView
+					android:id="@+id/tv_ptt_keycode"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="0"
+					android:textSize="@dimen/text_size_small3"
+					android:textColor="@color/gray_90"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_notification"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/ic_notif"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/notification"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_record_mode"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/prior_mic"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/record_mode"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<TextView
+					android:id="@+id/tv_record_mode"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/text_size_small3"
+					android:textColor="@color/gray_90"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_other_setting"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/setting"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/other_setting"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<TextView
+					android:id="@+id/tv_other_setting"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/text_size_small3"
+					android:textColor="@color/gray_90"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_call_setting"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/taxi"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/call_setting"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<TextView
+					android:id="@+id/tv_call_setting"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/text_size_small3"
+					android:textColor="@color/gray_90"/>
+				<ImageView
+					android:id="@+id/iv_call_help"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

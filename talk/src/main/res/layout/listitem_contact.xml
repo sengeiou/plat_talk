@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:gravity="center_vertical">
+
+    <com.kylindev.totalk.view.CircleImageView
+        android:id="@+id/civ_contact_avatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:padding="1dp"
+        android:src="@drawable/ic_default_avatar"/>
+    <TextView
+        android:id="@+id/tv_contact_nick"
+        style="@style/layout_horizontal"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:singleLine="true"
+        android:textSize="@dimen/text_size_small2"
+        android:textColor="@color/nearblack" />
+    <TextView
+        android:id="@+id/tv_contact_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:singleLine="true"
+        android:text="@string/new_apply"
+        android:textSize="@dimen/text_size_small3"
+        android:textColor="@color/gray_90"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/iv_contact_audio_source"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/audiosource_selector"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerInside"/>
+    <TextView
+        android:id="@+id/tv_contact_id"
+        style="@style/layout_wrap"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:singleLine="true"
+        android:textSize="@dimen/text_size_small3"
+        android:textColor="@color/gray_d0" />
+    <ImageView
+        android:id="@+id/iv_contact_selected"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ble_connected"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerInside"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/row_height"/>
+</LinearLayout>

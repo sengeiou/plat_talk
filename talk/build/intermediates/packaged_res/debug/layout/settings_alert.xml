@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white" >
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical" >
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="10dp" />
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_handmic_alarm"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:id="@+id/iv_handmic_alarm"
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/checkbox_off"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/handmic_alarm"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:id="@+id/iv_handmic_alarm_help"
+					android:src="@drawable/help"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_alert_type"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/alert_type"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/notif_style"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<TextView
+					android:id="@+id/tv_alert_type"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/normal"
+					android:textSize="@dimen/text_size_small3"
+					android:textColor="@color/gray_90"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+			<LinearLayout
+				android:id="@+id/ll_alert_volume"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="20dp"
+					android:layout_height="20dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:src="@drawable/volume"
+					/>
+				<TextView
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/alert_volume"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					style="@style/layout_horizontal"
+					android:layout_weight="1"/>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:src="@drawable/arrow_right_gray"
+					android:padding="10dp" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/divider_gray" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

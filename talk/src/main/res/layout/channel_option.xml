@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="match_parent"
+	android:padding="5dp" >
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical" >
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="5dp"></LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<TextView
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:gravity="center"
+					android:text="@string/channel_id"
+					android:textSize="@dimen/text_size_small2"
+					android:textColor="@color/nearblack" />
+				<TextView
+					android:id="@+id/tv_chan_info_id"
+					android:layout_width="0dp"
+					android:layout_weight="2"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:paddingLeft="5dp"
+					android:textSize="@dimen/text_size_small2"
+					android:paddingRight="5dp" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/ll_creator"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<TextView
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:gravity="center"
+					android:text="@string/creator_nick"
+					android:textSize="@dimen/text_size_small2" />
+				<TextView
+					android:id="@+id/tv_chan_info_creator"
+					android:layout_width="0dp"
+					android:layout_weight="2"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:textSize="@dimen/text_size_small2"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="5dp"></LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<TextView
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:gravity="center"
+					android:text="@string/name"
+					android:textSize="@dimen/text_size_small2"
+					/>
+				<EditText
+					android:id="@+id/et_chan_info_name"
+					android:layout_width="0dp"
+					android:layout_weight="2"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp"
+					android:textSize="@dimen/text_size_small2"
+					android:background="@drawable/shape_et_bg" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="5dp"></LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/ll_channel_pwd"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<TextView
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:gravity="center"
+					android:text="@string/pwd"
+					android:textSize="@dimen/text_size_small2" />
+				<EditText
+					android:id="@+id/et_chan_info_pwd"
+					android:layout_width="0dp"
+					android:layout_weight="2"
+					android:layout_height="@dimen/row_height"
+					android:singleLine="true"
+					android:inputType="number"
+					android:maxLength="4"
+					android:textSize="@dimen/text_size_small2"
+					android:paddingLeft="5dp"
+					android:paddingRight="5dp"
+					android:background="@drawable/shape_et_bg" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="5dp"></LinearLayout>
+			<CheckBox
+				android:id="@+id/cb_public_channel"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/row_height"
+				android:textSize="@dimen/text_size_small2"
+				android:text="@string/is_public_channel" >
+			</CheckBox>
+			<CheckBox
+				android:id="@+id/cb_need_apply"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/row_height"
+				android:textSize="@dimen/text_size_small2"
+				android:text="@string/need_apply" >
+			</CheckBox>
+			<CheckBox
+				android:id="@+id/cb_allow_order_bg"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/row_height"
+				android:textSize="@dimen/text_size_small2"
+				android:text="@string/allow_order_bg" >
+			</CheckBox>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"></LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/ll_channel_info_members"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				android:background="@color/white"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp" />
+				<TextView
+					android:singleLine="true"
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/text_size_small2"
+					android:text="@string/member_list" />
+				<ImageView
+					android:src="@drawable/arrow_right_gray"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="5dp"></LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/ll_channel_info_auth"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:gravity="center_vertical"
+				android:background="@color/white"
+				android:visibility="gone"
+				style="@style/BorderlessButton"
+				>
+				<ImageView
+					android:layout_width="40dp"
+					android:layout_height="40dp" />
+				<TextView
+					android:singleLine="true"
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/text_size_small2"
+					android:text="@string/manage_member_auth" />
+				<ImageView
+					android:src="@drawable/arrow_right_gray"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:padding="10dp" />
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"></LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/row_height">
+				<ImageView
+					android:id="@+id/iv_channel_info_delete"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:src="@drawable/delete"
+					style="@style/BorderlessButton"/>
+				<TextView
+					android:layout_width="0dp"
+					android:layout_weight="1"
+					android:layout_height="wrap_content"/>
+				<ImageView
+					android:id="@+id/iv_channel_info_share"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:src="@drawable/share"
+					style="@style/BorderlessButton"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"></LinearLayout>
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout> 

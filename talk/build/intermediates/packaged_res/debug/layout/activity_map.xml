@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/fl_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/view_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        />
+
+        <ImageView
+            android:id="@+id/iv_applyorder"
+            style="@style/BorderlessButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
+            android:alpha="1"
+            android:src="@drawable/accept_call_pttlib"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_callpassenger"
+            style="@style/BorderlessButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:alpha="0.9"
+            android:src="@drawable/ic_phonecall_pttlib"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_selfcenter"
+            style="@style/BorderlessButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="110dp"
+            android:alpha="0.6"
+            android:src="@drawable/ic_selfcenter_off" />
+
+        <ImageView
+            android:id="@+id/iv_gather"
+            style="@style/BorderlessButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:alpha="0.6"
+            android:src="@drawable/ic_gather" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_whogetorderaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:alpha="0.9"
+                android:background="@color/black"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:maxLines="2"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/tv_div"
+                android:layout_below="@+id/tv_whogetorderaddress"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+            <TextView
+                android:id="@+id/tv_current_chan_talker_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/tv_div"
+                android:alpha="0.8"
+                android:background="@drawable/shape_current_chantalker_bg_style"
+                android:ellipsize="end"
+                android:maxEms="7"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <!--
+        <Spinner
+            android:id="@+id/spinner_map_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+            -->
+
+    </FrameLayout>
+</LinearLayout>

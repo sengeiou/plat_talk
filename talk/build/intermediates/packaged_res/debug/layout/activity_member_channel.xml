@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_match"
+    android:orientation="vertical"
+	android:background="@color/white" >
+
+    <LinearLayout
+        style="@style/layout_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/nearblack"
+        android:gravity="center_vertical" >
+        <ImageView
+            android:id="@+id/iv_member_leave"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow_left"
+            style="@style/BorderlessButton"/>
+
+        <TextView
+            android:id="@+id/tv_member_chan_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_middle" />
+        <TextView
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"/>
+    </LinearLayout>
+
+    <FrameLayout
+        style="@style/layout_vertical"
+        android:layout_weight="8">
+        <ListView
+            android:id="@+id/lv_members"
+            style="@style/layout_match">
+
+        </ListView>
+        <ProgressBar
+            android:id="@+id/pb_get_member"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <LinearLayout
+        style="@style/layout_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical" >
+        <Button
+            android:id="@+id/btn_prev_page"
+            style="@style/layout_horizontal"
+            android:layout_weight="1"
+            android:text="@string/prev_page"/>
+        <TextView
+            android:id="@+id/tv_pageid"
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_next_page"
+            style="@style/layout_horizontal"
+            android:layout_weight="1"
+            android:text="@string/next_page"/>
+
+    </LinearLayout>
+</LinearLayout>

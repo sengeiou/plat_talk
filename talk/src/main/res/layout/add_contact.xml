@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical"
+	>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="20dp"/>
+	<LinearLayout
+		style="@style/layout_vertical"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/row_height"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp"
+		android:gravity="center_vertical" >
+		<EditText
+			style="@style/layout_vertical"
+			android:layout_height="match_parent"
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:id="@+id/et_search_contact"
+			android:hint="@string/personal_username_hint"
+			android:singleLine="true"
+			android:inputType="number"
+			android:textColor="@color/nearblack"
+			android:textSize="@dimen/text_size_small"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+			android:background="@drawable/shape_et_bg" />
+		<ImageButton
+			android:id="@+id/ib_search_contact"
+			android:layout_width="@dimen/row_height"
+			android:layout_height="@dimen/row_height"
+			android:scaleType="centerInside"
+			android:src="@drawable/ic_search"
+            style="@style/BorderlessButton"/>
+	</LinearLayout>
+	<LinearLayout
+		style="@style/layout_vertical"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/row_height"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp"
+		android:gravity="center_vertical" >
+		<com.kylindev.totalk.view.CircleImageView
+			android:id="@+id/civ_searched_user_avatar"
+			android:layout_width="36dp"
+			android:layout_height="36dp"
+			android:padding="1dp"
+			android:src="@drawable/ic_default_avatar"
+			android:visibility="invisible"/>
+		<TextView
+			android:id="@+id/tv_searched_user_nick"
+			style="@style/layout_horizontal"
+			android:layout_weight="1"
+			android:ellipsize="end"
+			android:gravity="center_vertical"
+			android:lines="1"
+			android:singleLine="true"
+			android:textSize="@dimen/text_size_small2"
+			android:textColor="@color/nearblack" />
+		<TextView
+			android:id="@+id/tv_searched_user_id"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingRight="5dp"
+			android:gravity="center_vertical"
+			android:textSize="@dimen/text_size_small2"
+			android:textColor="@color/gray_b0" />
+		<Button
+			android:id="@+id/btn_add_contact"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/add"
+			android:textSize="@dimen/text_size_small2"
+			android:visibility="invisible"/>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="20dp"/>
+
+</LinearLayout>

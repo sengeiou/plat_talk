@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:background="@color/gray_ea"
+	>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/nearblack" >
+		<ImageView
+		    android:id="@+id/iv_verity_phonoe_back"
+		    android:layout_width="@dimen/title_height"
+		    android:layout_height="@dimen/title_height"
+			android:padding="6dp"
+			android:scaleType="centerInside"
+		    android:src="@drawable/arrow_left"
+	        style="@style/BorderlessButton"
+		/>
+		<TextView
+		    style="@style/layout_horizontal"
+		    android:layout_weight="1"
+		    android:gravity="center"
+		    android:text="@string/verify_phone"
+		    android:textColor="@color/white"
+			android:textSize="@dimen/text_size_middle"
+		/>
+		<TextView
+			android:layout_width="@dimen/title_height"
+			android:layout_height="@dimen/title_height"
+		/>		    
+	</LinearLayout>
+	    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/row_height"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		>
+		<Button
+			android:id="@+id/btn_country_verify"
+			android:text="+86"
+			android:layout_width="60dp"
+			android:layout_height="@dimen/row_height"
+			android:textColor="@color/nearblack"
+			android:enabled="true"
+			android:textSize="@dimen/text_size_small2"
+			android:background="@drawable/shape_et_bg"/>
+		<EditText
+			android:id="@+id/et_verify_number"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:singleLine="true"
+			android:layout_marginLeft="5dp"
+			android:paddingLeft="5dp"
+			android:paddingRight="5dp"
+			android:hint="@string/phone_number"
+			android:textColor="@color/nearblack"
+			android:textSize="@dimen/text_size_small2"
+			android:inputType="number"
+			android:background="@drawable/shape_et_bg" />
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="10dp" />
+	<Button
+		android:id="@+id/btn_get_code"
+		android:text="@string/get_sms"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/row_height"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:enabled="false"
+		android:textColor="@color/white"
+		android:textSize="@dimen/text_size_small2"
+		android:background="@drawable/selector_btn"/>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="25dp" />
+
+	<EditText
+        android:id="@+id/et_verify_code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_height"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:singleLine="true"
+        android:hint="@string/input_verify_code"
+		android:textColor="@color/nearblack"
+		android:textSize="@dimen/text_size_small2"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+        android:inputType="number"
+		android:background="@drawable/shape_et_bg" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="10dp" />
+    <Button
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_height"
+        android:text="@string/ok"
+		android:layout_marginLeft="@dimen/padding_left_right"
+		android:layout_marginRight="@dimen/padding_left_right"
+		android:enabled="false"
+		android:textColor="@color/white"
+		android:textSize="@dimen/text_size_small2"
+		android:background="@drawable/selector_btn"/>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="25dp" />
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+		android:background="@color/white"/>
+    
+</LinearLayout>

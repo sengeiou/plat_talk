@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+  
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0"  android:drawable="@drawable/vol0" />
+    <item android:maxLevel="1"  android:drawable="@drawable/vol1" />
+    <item android:maxLevel="2"  android:drawable="@drawable/vol2" />
+    <item android:maxLevel="3"  android:drawable="@drawable/vol3" />
+    <item android:maxLevel="4"  android:drawable="@drawable/vol4" />
+    <item android:maxLevel="5"  android:drawable="@drawable/vol5" />
+    <item android:maxLevel="6"  android:drawable="@drawable/vol6" />
+    <item android:maxLevel="7"  android:drawable="@drawable/vol7" />
+    <item android:maxLevel="8"  android:drawable="@drawable/vol8" />
+    <item android:maxLevel="9"  android:drawable="@drawable/vol9" />
+    <item android:maxLevel="10"  android:drawable="@drawable/vol10" />
+    <item android:maxLevel="11"  android:drawable="@drawable/vol11" />
+    <item android:maxLevel="12"  android:drawable="@drawable/vol12" />
+    <item android:maxLevel="13"  android:drawable="@drawable/vol13" />
+    <item android:maxLevel="14"  android:drawable="@drawable/vol14" />
+    <item android:maxLevel="15"  android:drawable="@drawable/vol15" />
+    <item android:maxLevel="16"  android:drawable="@drawable/vol16" />
+    <item android:maxLevel="17"  android:drawable="@drawable/vol17" />
+    <item android:maxLevel="18"  android:drawable="@drawable/vol18" />
+    <item android:maxLevel="19"  android:drawable="@drawable/vol19" />
+    <item android:maxLevel="40"  android:drawable="@drawable/vol20" />
+</level-list>

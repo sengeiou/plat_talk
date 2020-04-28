@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/white" >
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="10dp" />
+
+		<LinearLayout
+			android:id="@+id/ll_count"
+			android:layout_width="match_parent"
+			android:layout_height="70dp"
+			style="@style/BorderlessButton" >
+			<com.kylindev.totalk.view.CircleImageView
+				android:id="@+id/iv_my_avatar"
+				android:layout_width="55dp"
+				android:layout_height="55dp"
+				android:layout_marginLeft="5dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginStart="5dp"
+				android:layout_marginEnd="10dp"
+				android:layout_gravity="center_vertical"
+				android:src="@drawable/ic_default_avatar" />
+			<LinearLayout
+				style="@style/layout_horizontal"
+				android:layout_weight="1"
+				android:gravity="center_vertical"
+				android:orientation="vertical" >
+				<TextView
+					android:id="@+id/tv_my_id"
+					style="@style/layout_wrap"
+					android:textColor="@color/dimgray"
+					android:textSize="@dimen/text_size_small" />
+				<TextView
+					android:id="@+id/tv_my_nick"
+					style="@style/layout_wrap"
+					android:textColor="@color/dimgray"
+					android:textSize="@dimen/text_size_small" />
+			</LinearLayout>
+			<ImageView
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:padding="15dp"
+				android:layout_gravity="center_vertical"
+				android:src="@drawable/arrow_right_gray" />
+		</LinearLayout>
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="10dp" />
+
+	</LinearLayout>
+</LinearLayout>

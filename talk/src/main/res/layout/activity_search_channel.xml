@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_match"
+    android:orientation="vertical"
+	android:background="@color/white" >
+
+    <LinearLayout
+        style="@style/layout_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/nearblack"
+        android:gravity="center_vertical" >
+        <ImageView
+            android:id="@+id/iv_search_leave"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow_left"
+            style="@style/BorderlessButton"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/search_channel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_middle" />
+        <TextView
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"/>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical" >
+        <EditText
+            style="@style/layout_vertical"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:id="@+id/et_search_channel"
+            android:hint="@string/channel_keyword"
+            android:singleLine="true"
+            android:textColor="@color/nearblack"
+            android:textSize="@dimen/text_size_small"
+            android:padding="3dp"
+            android:background="@drawable/shape_et_bg" />
+        <ImageButton
+            android:id="@+id/ib_search_channel"
+            android:layout_width="@dimen/row_height"
+            android:layout_height="@dimen/row_height"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_search"
+            style="@style/BorderlessButton"/>
+    </LinearLayout>
+
+    <FrameLayout
+        style="@style/layout_vertical"
+        android:layout_weight="8">
+        <ListView
+            android:id="@+id/lv_searched_chan"
+            style="@style/layout_match">
+
+        </ListView>
+        <ProgressBar
+            android:id="@+id/pb_search_channel"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+</LinearLayout>

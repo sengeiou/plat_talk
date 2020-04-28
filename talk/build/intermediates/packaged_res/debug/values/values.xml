@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_code_list">
+        <item>Angola                     *+244  </item>
+        <item>Afghanistan                *+93   </item>
+        <item>Albania                    *+355  </item>
+        <item>Algeria                    *+213  </item>
+        <item>Andorra                    *+376  </item>
+        <item>Anguilla                   *+1264 </item>
+        <item>Antigua and Barbuda        *+1268 </item>
+        <item>Argentina                  *+54   </item>
+        <item>Armenia                    *+374  </item>
+        <item>Ascension                  *+247  </item>
+        <item>Australia                  *+61   </item>
+        <item>Austria                    *+43   </item>
+        <item>Azerbaijan                 *+994  </item>
+        <item>Bahamas                    *+1242 </item>
+        <item>Bahrain                    *+973  </item>
+        <item>Bangladesh                 *+880  </item>
+        <item>Barbados                   *+1246 </item>
+        <item>Belarus                    *+375  </item>
+        <item>Belgium                    *+32   </item>
+        <item>Belize                     *+501  </item>
+        <item>Benin                      *+229  </item>
+        <item>BermudaIs.                 *+1441 </item>
+        <item>Bolivia                    *+591  </item>
+        <item>Botswana                   *+267  </item>
+        <item>Brazil                     *+55   </item>
+        <item>Brunei                     *+673  </item>
+        <item>Bulgaria                   *+359  </item>
+        <item>Burkina-faso               *+226  </item>
+        <item>Burma                      *+95   </item>
+        <item>Burundi                    *+257  </item>
+        <item>Cameroon                   *+237  </item>
+        <item>Canada                     *+1    </item>
+        <item>Cayman Is.                 *+1345 </item>
+        <item>Central African Republic   *+236  </item>
+        <item>Chad                       *+235  </item>
+        <item>Chile                      *+56   </item>
+        <item>China                      *+86   </item>
+        <item>Colombia                   *+57   </item>
+        <item>Congo                      *+242  </item>
+        <item>Cook Is.                   *+682  </item>
+        <item>Costa Rica                 *+506  </item>
+        <item>Cuba                       *+53   </item>
+        <item>Cyprus                     *+357  </item>
+        <item>Czech Republic             *+420  </item>
+        <item>Denmark                    *+45   </item>
+        <item>Djibouti                   *+253  </item>
+        <item>Dominica Rep.              *+1890 </item>
+        <item>Ecuador                    *+593  </item>
+        <item>Egypt                      *+20   </item>
+        <item>EISalvador                 *+503  </item>
+        <item>Estonia                    *+372  </item>
+        <item>Ethiopia                   *+251  </item>
+        <item>Fiji                       *+679  </item>
+        <item>Finland                    *+358  </item>
+        <item>France                     *+33   </item>
+        <item>French Guiana              *+594  </item>
+        <item>Gabon                      *+241  </item>
+        <item>Gambia                     *+220  </item>
+        <item>Georgia                    *+995  </item>
+        <item>Germany                    *+49   </item>
+        <item>Ghana                      *+233  </item>
+        <item>Gibraltar                  *+350  </item>
+        <item>Greece                     *+30   </item>
+        <item>Grenada                    *+1809 </item>
+        <item>Guam                       *+1671 </item>
+        <item>Guatemala                  *+502  </item>
+        <item>Guinea                     *+224  </item>
+        <item>Guyana                     *+592  </item>
+        <item>Haiti                      *+509  </item>
+        <item>Honduras                   *+504  </item>
+        <item>Hongkong                   *+852  </item>
+        <item>Hungary                    *+36   </item>
+        <item>Iceland                    *+354  </item>
+        <item>India                      *+91   </item>
+        <item>Indonesia                  *+62   </item>
+        <item>Iran                       *+98   </item>
+        <item>Iraq                       *+964  </item>
+        <item>Ireland                    *+353  </item>
+        <item>Israel                     *+972  </item>
+        <item>Italy                      *+39   </item>
+        <item>IvoryCoast                 *+225  </item>
+        <item>Jamaica                    *+1876 </item>
+        <item>Japan                      *+81   </item>
+        <item>Jordan                     *+962  </item>
+        <item>Kampuchea (Cambodia )      *+855  </item>
+        <item>Kazakstan                  *+327  </item>
+        <item>Kenya                      *+254  </item>
+        <item>Korea                      *+82   </item>
+        <item>Kuwait                     *+965  </item>
+        <item>Kyrgyzstan                 *+331  </item>
+        <item>Laos                       *+856  </item>
+        <item>Latvia                     *+371  </item>
+        <item>Lebanon                    *+961  </item>
+        <item>Lesotho                    *+266  </item>
+        <item>Liberia                    *+231  </item>
+        <item>Libya                      *+218  </item>
+        <item>Liechtenstein              *+423  </item>
+        <item>Lithuania                  *+370  </item>
+        <item>Luxembourg                 *+352  </item>
+        <item>Macao                      *+853  </item>
+        <item>Madagascar                 *+261  </item>
+        <item>Malawi                     *+265  </item>
+        <item>Malaysia                   *+60   </item>
+        <item>Maldives                   *+960  </item>
+        <item>Mali                       *+223  </item>
+        <item>Malta                      *+356  </item>
+        <item>Mariana Is                 *+1670 </item>
+        <item>Martinique                 *+596  </item>
+        <item>Mauritius                  *+230  </item>
+        <item>Mexico                     *+52   </item>
+        <item>Moldova, Republic of       *+373  </item>
+        <item>Monaco                     *+377  </item>
+        <item>Mongolia                   *+976  </item>
+        <item>Montserrat Is              *+1664 </item>
+        <item>Morocco                    *+212  </item>
+        <item>Mozambique                 *+258  </item>
+        <item>Namibia                    *+264  </item>
+        <item>Nauru                      *+674  </item>
+        <item>Nepal                      *+977  </item>
+        <item>Netheriands Antilles       *+599  </item>
+        <item>Netherlands                *+31   </item>
+        <item>NewZealand                 *+64   </item>
+        <item>Nicaragua                  *+505  </item>
+        <item>Niger                      *+227  </item>
+        <item>Nigeria                    *+234  </item>
+        <item>North Korea                *+850  </item>
+        <item>Norway                     *+47   </item>
+        <item>Oman                       *+968  </item>
+        <item>Pakistan                   *+92   </item>
+        <item>Panama                     *+507  </item>
+        <item>Papua New Cuinea           *+675  </item>
+        <item>Paraguay                   *+595  </item>
+        <item>Peru                       *+51   </item>
+        <item>Philippines                *+63   </item>
+        <item>Poland                     *+48   </item>
+        <item>French Polynesia           *+689  </item>
+        <item>Portugal                   *+351  </item>
+        <item>PuertoRico                 *+1787 </item>
+        <item>Qatar                      *+974  </item>
+        <item>Reunion                    *+262  </item>
+        <item>Romania                    *+40   </item>
+        <item>Russia                     *+7    </item>
+        <item>Saint Lueia                *+1758 </item>
+        <item>Saint Vincent              *+1784 </item>
+        <item>Samoa Eastern              *+684  </item>
+        <item>Samoa Western              *+685  </item>
+        <item>San Marino                 *+378  </item>
+        <item>Sao Tome and Principe      *+239  </item>
+        <item>Saudi Arabia               *+966  </item>
+        <item>Senegal                    *+221  </item>
+        <item>Seychelles                 *+248  </item>
+        <item>Sierra Leone               *+232  </item>
+        <item>Singapore                  *+65   </item>
+        <item>Slovakia                   *+421  </item>
+        <item>Slovenia                   *+386  </item>
+        <item>Solomon Is                 *+677  </item>
+        <item>Somali                     *+252  </item>
+        <item>South Africa               *+27   </item>
+        <item>Spain                      *+34   </item>
+        <item>Sri Lanka                  *+94   </item>
+        <item>St.Lucia                   *+1758 </item>
+        <item>St.Vincent                 *+1784 </item>
+        <item>Sudan                      *+249  </item>
+        <item>Suriname                   *+597  </item>
+        <item>Swaziland                  *+268  </item>
+        <item>Sweden                     *+46   </item>
+        <item>Switzerland                *+41   </item>
+        <item>Syriaw                     *+963  </item>
+        <item>Taiwan                     *+886  </item>
+        <item>Tajikstan                  *+992  </item>
+        <item>Tanzania                   *+255  </item>
+        <item>Thailand                   *+66   </item>
+        <item>Togo                       *+228  </item>
+        <item>Tonga                      *+676  </item>
+        <item>Trinidad and Tobago        *+1809 </item>
+        <item>Tunisia                    *+216  </item>
+        <item>Turkey                     *+90   </item>
+        <item>Turkmenistan               *+993  </item>
+        <item>Uganda                     *+256  </item>
+        <item>Ukraine                    *+380  </item>
+        <item>United Arab Emirates       *+971  </item>
+        <item>United Kiongdom            *+44   </item>
+        <item>United States of America   *+1    </item>
+        <item>Uruguay                    *+598  </item>
+        <item>Uzbekistan                 *+233  </item>
+        <item>Venezuela                  *+58   </item>
+        <item>Vietnam                    *+84   </item>
+        <item>Yemen                      *+967  </item>
+        <item>Yugoslavia                 *+381  </item>
+        <item>South Africa               *+27   </item>
+        <item>Zimbabwe                   *+263  </item>
+        <item>Zaire                      *+243  </item>
+        <item>Zambia                     *+260  </item>
+    </string-array>
+    <color name="app_blue">#0193e6</color>
+    <color name="app_blue_dark">#016cc3</color>
+    <color name="app_blue_light">#5ab1e8</color>
+    <color name="app_green">#49b830</color>
+    <color name="app_red">#e00000</color>
+    <color name="black">#000000</color>
+    <color name="channel_bg">#b9d2f3</color>
+    <color name="darkorange">#ff8c00</color>
+    <color name="dimgray">#666666</color>
+    <color name="dimgray2">#555555</color>
+    <color name="dimgray3">#444444</color>
+    <color name="divider_gray">#d0d0d0</color>
+    <color name="gray">#808080</color>
+    <color name="gray_60">#606060</color>
+    <color name="gray_90">#909090</color>
+    <color name="gray_a0">#a0a0a0</color>
+    <color name="gray_b0">#b0b0b0</color>
+    <color name="gray_c0">#c0c0c0</color>
+    <color name="gray_d0">#d0d0d0</color>
+    <color name="gray_e0">#e0e0e0</color>
+    <color name="gray_ea">#eaeaea</color>
+    <color name="gray_f0">#f0f0f0</color>
+    <color name="gray_f5">#f5f5f5</color>
+    <color name="gray_f8">#f8f8f8</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="holo_orange_dark">#ffff8800</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="light_blue">#cbe2ff</color>
+    <color name="nearblack">#434343</color>
+    <color name="ptt_bg_shadow">#31363e</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="swap_holo_bule_bright">#4996e5</color>
+    <color name="swap_holo_green_bright">#48B94A</color>
+    <color name="swap_holo_pure_bright">#d066b1</color>
+    <color name="text_black">#313330</color>
+    <color name="text_gray">#babeb7</color>
+    <color name="white">#ffffff</color>
+    <dimen name="corner_radius">3dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_left_right">15dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="row_height">40dp</dimen>
+    <dimen name="text_size_big">25dp</dimen>
+    <dimen name="text_size_middle">20dp</dimen>
+    <dimen name="text_size_small">18dp</dimen>
+    <dimen name="text_size_small2">15dp</dimen>
+    <dimen name="text_size_small3">12dp</dimen>
+    <dimen name="text_size_small4">10dp</dimen>
+    <dimen name="title_height">45dp</dimen>
+    <string name="about">About</string>
+    <string name="about_help_content1">
+        To ensure Totalk work in background, please:\n
+        1. Lock Totalk service in background.\n
+        2. Ensure network and service can run in background.\n
+        3. Please confirm Wifi always ON in sleep mode.
+    </string>
+    <string name="about_help_content2">
+        You can use Totalk bluetooth handmid, button to trigger PTT.
+    </string>
+    <string name="about_help_content3">
+        Totalk PTT is all FREE.\n
+        Consume 6MB every 1-hour non-stop voice\n
+        Author email: kylindev@qq.com
+    </string>
+    <string name="about_help_title1">Background running</string>
+    <string name="about_help_title2">Accessory</string>
+    <string name="about_help_title3">Other</string>
+    <string name="about_sms_help">Please send SMS permission to APP</string>
+    <string name="accept">Accept</string>
+    <string name="accessory">Accessory</string>
+    <string name="accessory_intro">Accessory for PTT app: phone, button, handmic, PTT router</string>
+    <string name="account">Account</string>
+    <string name="add">Add</string>
+    <string name="add_contact">Add contact</string>
+    <string name="add_you_as_contact"> apply contact</string>
+    <string name="agree">agree</string>
+    <string name="alert_call_about">About</string>
+    <string name="alert_call_reboot">reboot call system</string>
+    <string name="alert_volume">Notification volume</string>
+    <string name="allow_order_bg">Allow apply Taxi order everywhere</string>
+    <string name="app_name">bjxt_talk</string>
+    <string name="apply_sent">Application sent</string>
+    <string name="as_contact"> as contact?</string>
+    <string name="auth_back">Cancel kick</string>
+    <string name="auth_kick">Kick out</string>
+    <string name="auth_monitor">Appoint monitor</string>
+    <string name="auth_mute">Forbid talking</string>
+    <string name="auth_prior">Allow interruption</string>
+    <string name="auth_unmonitor">Cancel monitor</string>
+    <string name="auth_unmute">Allow talking</string>
+    <string name="auth_unprior">Forbid interruption</string>
+    <string name="auto_login">Auto login when launch</string>
+    <string name="be_kicked">Account login on other device</string>
+    <string name="ble_scan_tip">If can\'t search device, open Android setting-location-trun on, and provide app location permission</string>
+    <string name="bt_click">Ble button Support click</string>
+    <string name="buy">Buy</string>
+    <string name="call_about">about Taxi system</string>
+    <string name="call_details">
+        "滔滔叫车宝" is a telephone calling solution released by Qunhui, which is simple, efficient and flexible.\n
+        The solution simply turns the client into a driver ordering client simply by installing an automatic transfer system.\n
+        Steps for usage：\n
+        1.Passenger calling.\n
+        2.The transfer system automatically answers and announces the tone。\n
+        3.The passengers say the destination, and the voice is actually forwarded to the driver client.\n
+        4.Passengers hang up。\n
+        5.The drivers started to grab the order.\n
+    </string>
+    <string name="call_setting">Taxi orders settings</string>
+    <string name="call_sms_text">SMS content</string>
+    <string name="cancel">Cancel</string>
+    <string name="cant_add_yourself">Cannot add yourself</string>
+    <string name="car_chan">Taxi channel(#6704)</string>
+    <string name="change_chan_name">Change channel name</string>
+    <string name="change_chan_pwd">Change channel password</string>
+    <string name="change_nick">Change nick</string>
+    <string name="change_pwd">Change password</string>
+    <string name="chanid">#%1$d</string>
+    <string name="channel">Channel</string>
+    <string name="channelId">Channel id</string>
+    <string name="channelName">Channel name</string>
+    <string name="channel_comment">Channel may need comment to apply-approved</string>
+    <string name="channel_detail">Detail</string>
+    <string name="channel_id">Channel id</string>
+    <string name="channel_id_bad_format">Malformat channel id</string>
+    <string name="channel_keyword">Channel id/name</string>
+    <string name="channel_kouling">Channel password</string>
+    <string name="channel_name">Channel name</string>
+    <string name="channel_name_bad_format">Malformat channel name</string>
+    <string name="channel_no_bad_format">Malformat channel id</string>
+    <string name="channel_pwd">Channel password(4-digits. Blank for no password)</string>
+    <string name="channel_pwd_bad_format">Malformat channel password</string>
+    <string name="chat_history">Message record</string>
+    <string name="check_rule_first">Please confirm service rule</string>
+    <string name="check_update">Check update</string>
+    <string name="close">Close</string>
+    <string name="code_bad_format">Malformat verification code</string>
+    <string name="confirm_delete_chan">Will be removed permanantly. Continue?</string>
+    <string name="confirm_delete_contact">Delete contact?</string>
+    <string name="confirm_float_permission">Please confirm Totalk has permission of float window</string>
+    <string name="confirm_quit_chan">Will not show channel after quit. Continue?</string>
+    <string name="confirm_set_private">Others cant search private channel. Continue?</string>
+    <string name="confirm_set_public">Others can search public channel. Continue?</string>
+    <string name="connectFailed">connectFailed</string>
+    <string name="connect_fail">Connect failed</string>
+    <string name="connect_fail_please_retry">Connect failed. Please retry</string>
+    <string name="connected">Online</string>
+    <string name="connecting_device">Connecting device...</string>
+    <string name="connectionClosed">Connection Closed</string>
+    <string name="connectionRefused">connection Refused</string>
+    <string name="contact">Contacts</string>
+    <string name="create">create </string>
+    <string name="create_channel">Create channel</string>
+    <string name="creator_nick">Creator</string>
+    <string name="debug">Debug</string>
+    <string name="decline">Decline</string>
+    <string name="delete">delete</string>
+    <string name="delete_all_channel_records">Delete_all_channel_records?</string>
+    <string name="delete_channel">Delete channel</string>
+    <string name="delete_current_channel_record">Delete current channel record?</string>
+    <string name="delete_history_information">Delete history information</string>
+    <string name="detail">Detail</string>
+    <string name="detail_rule">北京群辉科技有限公司PTT产品许可及服务协议\n重要须知\n\n北京群辉科技有限公司（以下简称北京群辉）在此特别提醒用户认真阅读、充分理解本《软件许可及服务协议》（下称“协议”）,未成年人应在法定监护人陪同下阅读。除非用户接受本协议所有条款，否则用户无权下载、安装或使用本软件及其相关服务。用户的下载、安装、使用、帐号获取和登录等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。\n本协议是用户与北京群辉之间关于用户下载、安装、使用、复制PTT软件（下称“本软件”）；使用、管理帐号；以及使用北京群辉相关服务所订立的协议。本协议描述北京群辉与用户之间关于软件许可使用及服务相关方面的权利义务。\n本协议可由北京群辉在必要时通过在网页上发出公告等合理方式随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知。用户可重新下载安装本软件或通过网页查阅最新版协议条款。在北京群辉修改协议条款后，如果用户不接受修改后的条款，有权停止使用北京群辉提供的软件和服务，用户继续使用北京群辉提供的软件和服务将被视为已接受了修改后的协议，当发生有关争议时，以最新的服务条款为准。用户使用本软件相关服务，应受相关服务条款的约束，并自觉遵守该相关服务条款的全部约定。\n\n1 知识产权声明\n1.1软件的一切版权、商标权、专利权、商业秘密等知识产权，以及与软件相关的所有信息内容，包括但不限于：文字表述及其组合、图标、图饰、图表、色彩、界面设计、版面框架、有关数据、印刷材料、或电子文档等均受中华人民共和国著作权法、商标法、专利法、反不正当竞争法和相应的国际条约以及其他知识产权法律法规的保护，除涉及第三方授权的软件或技术外，北京群辉享有上述知识产权。 1.2 未经北京群辉书面同意，用户不得为任何营利性或非营利性的目的自行实施、利用、转让或许可任何三方实施、利用、转让上述知识产权，北京群辉保留追究上述未经许可行为的权利。2 软件授权范围\n\n2.1 用户可以在单一台终端设备上安装、使用、显示、运行本软件。用户不得对本软件或者本软件运行过程中释放到任何终端内存中的数据及本软件运行过程中客户端与服务器端的交互数据进行复制、更改、修改、挂接运行或创作任何衍生作品，形式包括但不限于使用非北京群辉提供的插件、外挂或非经授权的第三方工具/服务接入本软件和相关系统。 2.2 保留权利：未明示授权的其他一切权利仍归北京群辉所有。\n\n3 用户使用须知\n\n3.1 用户有义务妥善保管其登录帐号和密码，并就其帐号及密码项下的一切活动负全部责任。如因用户自身原因导致被他人获悉自己的帐号资料（包括但不限于帐号名称、密码、个人信息），从而导致的损失由用户本人承担。\n\n3.2 用户在遵守法律及本协议的前提下可依本协议使用本软件。用户无权实施包括但不限于下列行为：\n\n3.2.1 用户通过非北京群辉开发、授权或认可的第三方兼容软件、系统登录或使用北京群辉软件及服务，用户针对北京群辉的软件和服务使用非北京群辉开发、授权或认证的插件；\n\n3.2.2 删除本软件及其他副本上所有关于版权的信息、内容；\n\n3.2.3 对本软件进行反向工程、反向汇编、反向编译等；\n\n3.2.4 对于本软件相关信息等，未经北京群辉书面同意，用户擅自实施包括但不限于下列行为：使用、出租、出借、复制、修改、链接、转载、汇编、发表、出版，建立镜像站点、擅自借助本软件发展与之有关的衍生产品、作品、服务、插件、外挂、兼容、互联等。\n\n3.2.5 利用本软件发表、传送、传播、储存违反国家法律、危害国家安全、祖国统一、社会稳定、公序良俗的内容，或任何不当的、侮辱诽谤的、淫秽的、暴力的及任何违反国家法律法规政策的内容。\n\n3.2.6 利用本软件发表、传送、传播、储存侵害他人知识产权、商业秘密权等合法权利的内容；\n\n3.2.7 制造虚假身份以误导、欺骗他人；\n\n3.2.8 利用本软件批量发表、传送、传播广告信息及垃圾信息；\n\n3.2.9 进行任何危害计算机网络安全的行为，包括但不限于：使用未经许可的数据或进入未经许可的服务器/帐号；未经允许进入公众计算机网络或者他人计算机系统并删除、修改、增加存储信息；未经许可，企图探查、扫描、测试本软件系统或网络的弱点或其它实施破坏网络安全的行为；企图干涉、破坏本软件系统或网站的正常运行，故意传播恶意程序或病毒以及其他破坏干扰正常网络信息服务的行为；伪造TCP/IP数据包名称或部分名称；\n\n3.2.10 其他以任何不合法的方式、为任何不合法的目的、或以任何与本协议不一致的方式使用本软件和北京群辉提供的其他服务；\n\n3.2.11用户若违反上述规定，北京群辉有权采取终止、完全或部分中止、限制用户帐号的使用功能。\n\n3.3对于用户违法或违反本协议的使用而引起的一切责任，由用户负全部责任，一概与北京群辉及合作单位无关；导致北京群辉及合作单位损失的，北京群辉及合作单位有权要求用户赔偿，并有权保留相关记录。同时北京群辉有权视用户的行为性质，在不事先通知用户的情况下，采取包括但不限于中断使用许可、停止提供服务、限制使用、冻结或注销用户帐号、法律追究等措施。\n\n3.4 本软件同大多数互联网软件一样，受包括但不限于用户原因、网络服务质量、社会环境等因素的差异影响，可能受到各种安全问题的侵扰，如他人利用用户的资料，造成现实生活中的骚扰；用户下载安装的其它软件或访问的其他网站中含有“特洛伊木马”等病毒，威胁到用户的计算机信息和数据的安全，继而影响本软件的正常使用等等。用户应加强信息安全及使用者资料的保护意识，要注意加强密码保护，以免遭致损失和骚扰。\n\n3.5 非经北京群辉授权开发并正式发布的其它任何由本软件衍生的软件均属非法，下载、安装、使用此类软件，将可能导致不可预知的风险，由此产生的一切法律责任与纠纷一概与北京群辉无关。\n\n3.6 尊重用户个人隐私信息的私有性是北京群辉的一贯制度，北京群辉将会采取合理的措施保护用户的个人隐私信息，除法律要求或其他北京群辉认为必要的情况之外，北京群辉不会向合作单位以外的第三方公开或透露用户的个人资料及保存在北京群辉各项服务中的非公开内容。\n\n4 软件的安装使用、升级及终止\n\n4.1 用户接受本协议条款并完成相应的安装程序后，便成为本软件的使用者。用户同意并了解，只有在用户遵守与北京群辉之间签署的协议且该协议有效的情况下，用户方可使用本软件及北京群辉提供的与本软件有关的服务。\n\n4.2 北京群辉保留在任何时候为用户提供本软件的修改、升级版本的权利，以及为修改或升级服务收取费用的权利。软件新版本发布后，北京群辉不保证旧版本软件的继续可用。\n\n4.3用户拥有未经事先通知北京群辉的情况下，自行中断或终止本软件使用，自行卸载本软件的权利。用户知悉本软件卸载后无法再使用本软件功能及相关服务。\n\n4.4北京群辉拥有未经事先通知用户而修改软件功能、中断或中止软件使用的权利。北京群辉行使修改或中断软件使用的权利而造成任何损失的，用户同意北京群辉不需对用户或任何第三方负责。\n\n5 北京群辉和/或合作单位将根据市场与技术的发展，向用户提供与本软件相关的各种互联网以及移动通信增值服务，包括免费和收费的增值服务。北京群辉和/或合作单位保留对相关增值服务收取费用及改变收费标准、方式的权利；如相关服务由免费变更为收费服务，北京群辉和/或合作单位将以适当的形式通知，用户可自主选择接受或拒绝收费服务，并保证在使用收费服务时，将按照北京群辉和/或合作单位相关收费规定支付费用，如拒付或拖欠费用，北京群辉和/或合作单位有权停止服务，并依法追偿损失及赔偿。\n\n6北京群辉有权在服务中或经过服务投放各种广告和宣传信息，任何这类促销方法，包括运输货物、付款、服务、商业条件、担保及与广告有关的描述都只是在相应的用户和广告销售商之间发生。北京群辉不承担任何责任，北京群辉没有义务为这类广告销售负任何一部分的责任。\n\n7若用户对本软件有任何意见或改进的建议，均可向北京群辉提出。请注意，如果您这样做，还会授予北京群辉和第三方在本软件（北京群辉其他软件或第三方软件）中无偿使用和加入您的意见或建议的权利。\n\n8. 法律责任与不可抗力条款\n\n8.1 北京群辉特别提请用户注意：北京群辉为了保障公司业务发展和调整的自主权，北京群辉拥有随时自行修改或中断软件授权而不需通知用户的权利，如有必要，修改或中断会以通告形式公布于翼信网站重要页面上。\n\n8.2 用户违反本协议或相关的服务条款的规定，导致或产生的任何第三方主张的任何索赔、要求或损失，包括合理的律师费，用户同意赔偿北京群辉与合作公司、关联公司，并使之免受损害。\n\n8.3 用户理解并同意自主选择下载和／或使用本软件和所有与本软件一同提供或通过本软件提供的第三方软件，风险自负，并且对于因下载或使用本软件和此类第三方软件而对计算机系统造成的损坏或数据的丢失，用户应承担全部责任。\n\n8.4 北京群辉对不可抗力导致的损失不承担责任。本服务条款所指不可抗力包括：天灾、法律法规或政府指令的变更，因网络服务特性而特有的原因，例如境内外基础电信运营商的故障、计算机或互联网相关技术缺陷、互联网覆盖范围限制、计算机病毒、黑客攻击等因素，及其他合法范围内的不能预见、不能避免并不能克服的客观情况。\n\n9.内容所有权\n\n内容的定义包括本软件：文字、软件、声音、相片、视频、图表；在广告中的全部内容。所有这些内容均属于北京群辉及相关权利人，并受版权、商标、专利和其它财产所有权法律的保护。所以，用户只能在北京群辉和相关权利人授权下才能使用这些内容，而不能擅自复制、再造这些内容、或创造与内容有关的派生产品。\n\n10.法律适用\n\n10.1本协议受中华人民共和国法律的约束并依据其解释。如出现纠纷，用户和北京群辉一致同意将纠纷交由北京市西城区人民法院管辖。\n\n10.2如本协议中的任何条款因任何原因被判定为完全或部分无效或不具有执行力的，该无效或不具有执行力的条款将被最接近原条款意图的一项有效并可执行的条款所替代，并且本协议的其余条款仍应有效并且有执行力。\n\n11 权利声明\n\n北京群辉不行使、未能及时行使或者未充分行使本条款或者按照法律规定所享有的权利，不应被视为放弃该权利，也不影响北京群辉在将来行使该权利。</string>
+    <string name="device_disc_click_to_reconnect">Device disconnected\nClick button to connect</string>
+    <string name="device_list">Device list</string>
+    <string name="device_ok_click_to_disconnect">Device connected.\nClick button to disconnect</string>
+    <string name="different_pwd">Not match</string>
+    <string name="disconnected">Offline</string>
+    <string name="enable_auto_launch">Auto launch</string>
+    <string name="enable_float_btn">Float window</string>
+    <string name="ent_username_hint">username</string>
+    <string name="exp_chan">Experience channel(#1024)</string>
+    <string name="fix_3s">Fix bluetooth-cant-record</string>
+    <string name="fix_mtu">Fix T3 handmic MTU=23</string>
+    <string name="fix_mtu_help">If T3 disconnecting, try check and restart app</string>
+    <string name="forbid_bt_mic_help">When bluetooth headset connected, app use bluetooth MIC be default. Check this will forbid</string>
+    <string name="forbid_bt_record">Forbid bluetooth mic</string>
+    <string name="force_tcp">Force use TCP</string>
+    <string name="force_tcp_help">Check consume more net data usage</string>
+    <string name="forget_pwd">Forget password</string>
+    <string name="get_sms">Get SMS</string>
+    <string name="ham_chan">HAM channel(#6702)</string>
+    <string name="ham_notif">HAM style</string>
+    <string name="handmic_alarm">Handmic alert</string>
+    <string name="handmic_alarm_help">Handmic alert when checked</string>
+    <string name="headset_help">Use dial key of line/bluetooth headset for PTT</string>
+    <string name="help">Help</string>
+    <string name="history">History</string>
+    <string name="history_hours">History period(hours): </string>
+    <string name="homepage_link">www.allptt.com</string>
+    <string name="i_begin">Begin talk</string>
+    <string name="i_create">In totalk I created channel[</string>
+    <string name="i_in_totalk">I am in totalk channel [</string>
+    <string name="i_stop">Stop talk</string>
+    <string name="idle">Idle</string>
+    <string name="input_again">Input again</string>
+    <string name="input_auth_number">Input verification code</string>
+    <string name="input_new_pwd">Input new password</string>
+    <string name="input_nickname">Input nick</string>
+    <string name="input_old_pwd">Input old password</string>
+    <string name="input_phonenumber">Input phone</string>
+    <string name="input_verify_code">Input verify code in SMS</string>
+    <string name="invalid_phone">Invalid phone. Please confirm</string>
+    <string name="is_public_channel">Is searchable</string>
+    <string name="is_show_pass_channel">Is show password</string>
+    <string name="join">join </string>
+    <string name="join_channel">Join channel</string>
+    <string name="kouling">password</string>
+    <string name="leave">Leave</string>
+    <string name="link_relogin_help">Will relogin when be kicked by other device</string>
+    <string name="listen_ok">Listen channel</string>
+    <string name="loading">Loading...</string>
+    <string name="logging_in">Logining...</string>
+    <string name="login">Login</string>
+    <string name="login_fail">Login failed</string>
+    <string name="manage_member_auth">Member authorization</string>
+    <string name="map_notice">Will share your location with others, continue?</string>
+    <string name="member_list">Members</string>
+    <string name="more">More</string>
+    <string name="more_heartbeat">Strong online background</string>
+    <string name="more_heartbeat_help">More stable online, mainly for Huawei phone</string>
+    <string name="motor_chan">Motor channel(#1302)</string>
+    <string name="myid">Userid: %1$d</string>
+    <string name="mynick">Nick: %1$s</string>
+    <string name="myusername">Username: %1$s</string>
+    <string name="name">Name</string>
+    <string name="need_apply">Need apply-approve for new member</string>
+    <string name="need_corse_location_permission">Need permission to connect bluetooth</string>
+    <string name="need_mic_permission">PTT need record audio permission</string>
+    <string name="net_fail">Network disconnected</string>
+    <string name="net_fail_retry">Offline, connecting...\nClick to read help</string>
+    <string name="new_apply">new apply</string>
+    <string name="new_chan_pwd">New channel pwd(4-digits. Blank for no pwd)</string>
+    <string name="next_page">Next</string>
+    <string name="nick_bad_format">Malformat nick</string>
+    <string name="nick_needed">Nick needed</string>
+    <string name="nickname">Nick</string>
+    <string name="no_pwd">No password</string>
+    <string name="noname">No name</string>
+    <string name="normal">Normal</string>
+    <string name="notif">Notification</string>
+    <string name="notif_style">Notification style</string>
+    <string name="notification">Notification</string>
+    <string name="offline">Offline</string>
+    <string name="ok">OK</string>
+    <string name="one">one!</string>
+    <string name="online">Online</string>
+    <string name="or">or </string>
+    <string name="other_begin">Incoming voice</string>
+    <string name="other_setting">Other settings</string>
+    <string name="other_setting_help">Other settings</string>
+    <string name="other_setting_sms">SMS Notification</string>
+    <string name="other_stop">End of voice</string>
+    <string name="password">password</string>
+    <string name="password_bad_format">Malformat password</string>
+    <string name="password_different">Input different</string>
+    <string name="personal_username_hint">id/phone</string>
+    <string name="phone">Phone:(+%1$s)%2$s</string>
+    <string name="phone_bad_format">Malformat number</string>
+    <string name="phone_number">Phone number</string>
+    <string name="playback_duration">%1$d\'\'</string>
+    <string name="press_key">Press hardware key</string>
+    <string name="prev_page">Prev</string>
+    <string name="private_channel">Pirvate channel</string>
+    <string name="ptt_broadcast_help">Some phone has PTT key which can send broadcast, to support PTT</string>
+    <string name="ptt_down">PTT down</string>
+    <string name="ptt_key_def">PTT key map</string>
+    <string name="pull_load_more">Pull to refresh</string>
+    <string name="push_to_talk">PTT</string>
+    <string name="pwd">Password</string>
+    <string name="quick_switch_ch">quick switch channel(only map)</string>
+    <string name="quit">Quit</string>
+    <string name="quit_app">Quit</string>
+    <string name="quit_channel">Quit channel</string>
+    <string name="recommand_channel_warning">Notice</string>
+    <string name="recommand_channel_warning_detail">Improper behavior will be banned in public channels</string>
+    <string name="recommand_public_channels">recommand public channels:</string>
+    <string name="record_help">Default process voice. If talk volume small or bluetooth record fail\nTry normal mode</string>
+    <string name="record_mode">Voice record</string>
+    <string name="recordmode_normal">normal mode</string>
+    <string name="recordmode_other1">other 1</string>
+    <string name="recordmode_other2">other 2</string>
+    <string name="recordmode_other3">other 3</string>
+    <string name="recordmode_other4">other 4</string>
+    <string name="recordmode_other5">other 5</string>
+    <string name="recordmode_other6">other 6</string>
+    <string name="recordmode_process">voice process</string>
+    <string name="reg_fail">Register failed. The phone may already be registered.</string>
+    <string name="reg_ok">Cheers! Register succeed！\nYour totalk id:</string>
+    <string name="register">Register</string>
+    <string name="register_new_user">Register</string>
+    <string name="registering">Registering...</string>
+    <string name="release_to_load">Release to load</string>
+    <string name="relogin_after_minute">relogin after one minute</string>
+    <string name="reset_pwd">Reset password</string>
+    <string name="reset_pwd_fail">Reset password failed. Please try again.</string>
+    <string name="reset_pwd_ok">Reset password succeeded. Please login!</string>
+    <string name="scan_to_download">Scan to download</string>
+    <string name="scaning_device">Scanning device...</string>
+    <string name="search_channel">Search channel</string>
+    <string name="search_handmic">Scan</string>
+    <string name="searchable_chan">Public(can be searched)</string>
+    <string name="select_country">Select country/district</string>
+    <string name="send_again">send again(</string>
+    <string name="send_sms_to">Send verify SMS to </string>
+    <string name="sent_and_wait">SMS sent...(</string>
+    <string name="server_full">Server full</string>
+    <string name="server_ip">Server address</string>
+    <string name="service_rule">Service rule</string>
+    <string name="set_broadcast">Set key broadcast</string>
+    <string name="set_count">Account</string>
+    <string name="set_new_password">Set new password(>=6 char)</string>
+    <string name="set_nick">Set nick</string>
+    <string name="set_password">Set password</string>
+    <string name="set_password_again">Password again</string>
+    <string name="set_pwd">Set password(>=6 char)</string>
+    <string name="settings">Preference</string>
+    <string name="share">Share</string>
+    <string name="share_channel">Share channel</string>
+    <string name="share_content">I am using Totalk PTT. Come to talk with me. Search Totalk in App Store or app market</string>
+    <string name="short_delay">short delay receive(test)</string>
+    <string name="short_delay_help">Quicker recieving with possible worse continuity</string>
+    <string name="stop_search_handmic">Stop scan</string>
+    <string name="submit">Submit</string>
+    <string name="submitting">submitting...</string>
+    <string name="support_headset_key">Headset PTT</string>
+    <string name="support_vol_key">Volume key PTT</string>
+    <string name="syncing">synchronizing...</string>
+    <string name="thanks"> </string>
+    <string name="tmp_call">Call</string>
+    <string name="tvQQ"><a href="https://jq.qq.com/?_wv=1027&amp;k=5Q5MvfP">QQ:452570602</a></string>
+    <string name="unknown_device">Unknown device</string>
+    <string name="use_accessory">Accessory</string>
+    <string name="user_or_password_wrong">Wrong username or password</string>
+    <string name="userid_bad_format">Malformat username or id</string>
+    <string name="verify_fail">Verify failed</string>
+    <string name="verify_ok">Verify OK</string>
+    <string name="verify_phone">Verify phone</string>
+    <string name="verify_sent">Verify code sent</string>
+    <string name="when_down">Down</string>
+    <string name="when_up">Up</string>
+    <string name="wrong_client_type">Wrong client type</string>
+    <string name="wrong_old_pwd">Wrong password</string>
+    <string name="wrong_version">Wrong version</string>
+    <string name="you_have_not">You have not channel. Please </string>
+    <style name="BorderlessButton" parent="@android:style/Widget">
+        <item name="android:background">@drawable/selectable_background</item>
+    </style>
+    <style name="layout_horizontal" parent="layout_match">  
+    <item name="android:layout_width">0px</item>  
+  </style>
+    <style name="layout_match">  
+    <item name="android:layout_width">match_parent</item>  
+    <item name="android:layout_height">match_parent</item>  
+  </style>
+    <style name="layout_vertical" parent="layout_match">  
+    <item name="android:layout_height">0px</item>  
+  </style>
+    <style name="layout_wrap">  
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>  
+  </style>
+    <style name="layout_wrapheight">  
+    <item name="android:layout_width">match_parent</item>  
+    <item name="android:layout_height">wrap_content</item>  
+   </style>
+    <style name="layout_wrapwidth">  
+    <item name="android:layout_width">wrap_content</item>  
+    <item name="android:layout_height">match_parent</item>  
+   </style>
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="border_width"/>
+        <attr format="color" name="border_color"/>
+    </declare-styleable>
+    <declare-styleable name="InterpttNestedListView">
+        <!-- Maintain the scrolling position across list updates. -->
+        <attr format="boolean" name="maintainPosition"/>
+    </declare-styleable>
+</resources>

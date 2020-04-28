@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+              android:paddingTop="5dp"
+              android:paddingBottom="5dp"
+    >
+
+    <TextView
+        android:id="@+id/mychat_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_small2"
+        android:gravity="center"
+        android:visibility="gone" />
+    <!--下面是一个整体，包括左边的昵称语音框，和右边的头像-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!--左边是个上下布局。上面昵称，下面语音框-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+            <TextView
+                android:id="@+id/tv_talker_nick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="@dimen/text_size_small3"
+                android:textColor="@color/gray_60"/>
+            <LinearLayout
+                android:id="@+id/voice_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/voice_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_small3"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/gray_a0" />
+
+                <FrameLayout
+                    android:id="@+id/voice_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/chatto_bg_focused">
+
+                    <View
+                        android:id="@+id/id_recorder_anim"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:background="@drawable/adj" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tb_my_user_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

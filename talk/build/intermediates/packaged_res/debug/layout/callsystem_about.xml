@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:orientation="vertical"
+	>
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:text="@string/call_about"
+				android:textColor="@color/app_blue_light"
+				android:background="@drawable/selector_transp"
+				android:textSize="@dimen/text_size_middle" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>\
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="@dimen/text_size_small"
+				android:layout_marginRight="@dimen/text_size_small"
+				android:text="@string/call_details"
+				android:gravity="left"/>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:layout_width="60dp"
+					android:layout_height="60dp">
+				</LinearLayout>
+				<LinearLayout
+					style="@style/layout_horizontal"
+					android:layout_weight="1"
+					android:orientation="vertical"
+					android:gravity="center">
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="center"
+						android:autoLink="web"
+						android:text="@string/homepage_link"
+						android:textColor="@color/app_blue_light"
+						android:textSize="@dimen/text_size_small2" />
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/ll_goto_more"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:orientation="vertical"
+					android:gravity="center"
+					android:background="@drawable/selector_transp">
+					<ImageView
+						android:layout_width="30dp"
+						android:layout_height="30dp"
+						android:background="@drawable/share"/>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/more"/>
+				</LinearLayout>
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="10dp"/>
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

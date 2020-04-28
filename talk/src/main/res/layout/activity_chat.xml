@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_tongbao_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/nearblack"
+        android:gravity="center_vertical" >
+        <ImageView
+            android:id="@+id/iv_chat_back"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow_left"
+            style="@style/BorderlessButton"/>
+        <ImageView
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_height"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/history"
+            android:textSize="@dimen/text_size_middle"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/iv_history_setting"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"
+            android:src="@drawable/setting_white"
+            style="@style/BorderlessButton"
+            />
+        <ImageView
+            android:id="@+id/iv_chat_delete"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"
+            android:src="@drawable/deleted"
+            style="@style/BorderlessButton"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+        <ListView
+            android:id="@+id/lv_history"
+            style="@style/layout_horizontal"
+            android:layout_weight="2">
+        </ListView>
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/gray_e0"/>
+
+        <com.kylindev.totalk.view.pulltorefreshview.PullToRefreshRecyclerView
+            android:id="@+id/content_lv"
+            style="@style/layout_horizontal"
+            android:layout_weight="5"
+            android:listSelector="@android:color/transparent"
+            android:orientation="vertical"/>
+    </LinearLayout>
+</LinearLayout>

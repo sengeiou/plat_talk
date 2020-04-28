@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kylindev.totalk"
+    android:installLocation="auto" >
+
+    <uses-feature android:name="android.hardware.microphone" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+  	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--for bluetooth-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- for MobSMS -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+	<!--<uses-permission android:name="android.permission.INTERNET" />-->
+	<uses-permission android:name="android.permission.GET_TASKS" />
+    <!--bugly升级-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!--
+对于LoginActivity的launchMode，之前是singleTask。造成现象：收取到短信验证码，再点击图标启动时，
+不能自动进入verify界面，停留在Login界面。因此去掉singleTask
+-->
+    <application
+        android:icon="@drawable/bjxt"
+        android:label="@string/app_name"
+        android:name="com.kylindev.totalk.MainApp"
+        android:persistent="true"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+        <activity
+            android:name=".app.LoginActivity"
+            android:screenOrientation="${screenType}" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.kylindev.app.auto_launch" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".app.CountryActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity android:name=".app.ChannelActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}" android:exported="true"/>
+        <activity android:name=".app.ContactActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}" android:exported="true"/>
+        <activity android:name=".app.DeviceScanActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity android:name=".app.SearchChannel" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity android:name=".app.MemberChannel" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity android:name=".app.MapActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity android:name="com.kylindev.totalk.chat.RecyclerViewChatActivity" android:launchMode="singleTask" android:screenOrientation="${screenType}"/>
+        <activity
+			android:name="com.mob.tools.MobUIShell"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar"
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:windowSoftInputMode="stateHidden|adjustResize" />
+
+
+        <receiver android:name=".utils.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.kylindev.pttlib.service.InterpttService"
+            android:exported="true">
+        </service>
+
+        <receiver
+            android:name="com.kylindev.pttlib.utils.MediaButtonIntentReceiver"
+            android:enabled="true"
+            android:priority="1000">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.kylindev.pttlib.utils.AutoRestartServiceReceiver">
+            <intent-filter>
+                <action android:name="com.kylindev.pttlib.auto_restart_service" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.kylindev.pttlib.view.AlarmAlert"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:screenOrientation="${screenType}" />
+        <activity
+            android:name="com.kylindev.pttlib.view.PhoneAlert"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:screenOrientation="${screenType}" />
+        <activity
+            android:name="com.kylindev.pttlib.view.CallPassengerAlert"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:screenOrientation="${screenType}" />
+
+        <activity
+            android:name="com.kylindev.pttlib.view.WhoGetOrderAlert"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:screenOrientation="${screenType}" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+
+        <!-- for umeng -->
+        <meta-data android:value="55c3213de0f55ae81f0000f4" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
+
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="UmkUnSeEoita22G7vvvDKcvlaKprqgZd" />
+        <!--此service如果不添加，则位置只回调一次-->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+        </service>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.tencent.qcloud.tim.tuikit.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+    </application>
+    
+	
+</manifest>

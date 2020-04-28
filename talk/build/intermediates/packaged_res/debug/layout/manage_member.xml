@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content"   
+	android:orientation="vertical"
+	android:padding="5dp" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="10dp"/>
+
+	<EditText
+		android:id="@+id/et_ban_member_uid"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/row_height"
+		android:singleLine="true"
+		android:hint="成员用户号"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+		android:textSize="@dimen/text_size_small2"
+		android:background="@drawable/shape_et_bg" />
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<RadioGroup
+			android:id="@+id/rg_manage_member"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<RadioButton
+				android:id="@+id/rb_ban"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_kick"/>
+			<RadioButton
+				android:id="@+id/rb_cancel_ban"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_back"/>
+			<RadioButton
+				android:id="@+id/rb_mute"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_mute"/>
+			<RadioButton
+				android:id="@+id/rb_cancel_mute"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_unmute"/>
+			<RadioButton
+				android:id="@+id/rb_monitor"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_monitor"/>
+			<RadioButton
+				android:id="@+id/rb_cancel_monitor"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_unmonitor"/>
+			<RadioButton
+				android:id="@+id/rb_prior"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_prior"/>
+			<RadioButton
+				android:id="@+id/rb_cancel_prior"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_small"
+				android:text="@string/auth_unprior"/>
+		</RadioGroup>
+	</ScrollView>
+
+
+</LinearLayout>

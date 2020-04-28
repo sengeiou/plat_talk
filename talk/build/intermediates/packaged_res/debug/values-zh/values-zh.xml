@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_code_list">
+        <item>安哥拉             *+244  </item>
+        <item>阿富汗             *+93   </item>
+        <item>阿尔巴尼亚         *+355  </item>
+        <item>阿尔及利亚         *+213  </item>
+        <item>安道尔共和国       *+376  </item>
+        <item>安圭拉岛           *+1264 </item>
+        <item>安提瓜和巴布达     *+1268 </item>
+        <item>阿根廷             *+54   </item>
+        <item>亚美尼亚           *+374  </item>
+        <item>阿森松             *+247  </item>
+        <item>澳大利亚           *+61   </item>
+        <item>奥地利             *+43   </item>
+        <item>阿塞拜疆           *+994  </item>
+        <item>巴哈马             *+1242 </item>
+        <item>巴林               *+973  </item>
+        <item>孟加拉国           *+880  </item>
+        <item>巴巴多斯           *+1246 </item>
+        <item>白俄罗斯           *+375  </item>
+        <item>比利时             *+32   </item>
+        <item>伯利兹             *+501  </item>
+        <item>贝宁               *+229  </item>
+        <item>百慕大群岛         *+1441 </item>
+        <item>玻利维亚           *+591  </item>
+        <item>博茨瓦纳           *+267  </item>
+        <item>巴西               *+55   </item>
+        <item>文莱               *+673  </item>
+        <item>保加利亚           *+359  </item>
+        <item>布基纳法索         *+226  </item>
+        <item>缅甸               *+95   </item>
+        <item>布隆迪             *+257  </item>
+        <item>喀麦隆             *+237  </item>
+        <item>加拿大             *+1    </item>
+        <item>开曼群岛           *+1345 </item>
+        <item>中非共和国         *+236  </item>
+        <item>乍得               *+235  </item>
+        <item>智利               *+56   </item>
+        <item>中国               *+86   </item>
+        <item>哥伦比亚           *+57   </item>
+        <item>刚果               *+242  </item>
+        <item>库克群岛           *+682  </item>
+        <item>哥斯达黎加         *+506  </item>
+        <item>古巴               *+53   </item>
+        <item>塞浦路斯           *+357  </item>
+        <item>捷克               *+420  </item>
+        <item>丹麦               *+45   </item>
+        <item>吉布提             *+253  </item>
+        <item>多米尼加共和国     *+1890 </item>
+        <item>厄瓜多尔           *+593  </item>
+        <item>埃及               *+20   </item>
+        <item>萨尔瓦多           *+503  </item>
+        <item>爱沙尼亚           *+372  </item>
+        <item>埃塞俄比亚         *+251  </item>
+        <item>斐济               *+679  </item>
+        <item>芬兰               *+358  </item>
+        <item>法国               *+33   </item>
+        <item>法属圭亚那         *+594  </item>
+        <item>加蓬               *+241  </item>
+        <item>冈比亚             *+220  </item>
+        <item>格鲁吉亚           *+995  </item>
+        <item>德国               *+49   </item>
+        <item>加纳               *+233  </item>
+        <item>直布罗陀           *+350  </item>
+        <item>希腊               *+30   </item>
+        <item>格林纳达           *+1809 </item>
+        <item>关岛               *+1671 </item>
+        <item>危地马拉           *+502  </item>
+        <item>几内亚             *+224  </item>
+        <item>圭亚那             *+592  </item>
+        <item>海地               *+509  </item>
+        <item>洪都拉斯           *+504  </item>
+        <item>香港               *+852  </item>
+        <item>匈牙利             *+36   </item>
+        <item>冰岛               *+354  </item>
+        <item>印度               *+91   </item>
+        <item>印度尼西亚         *+62   </item>
+        <item>伊朗               *+98   </item>
+        <item>伊拉克             *+964  </item>
+        <item>爱尔兰             *+353  </item>
+        <item>以色列             *+972  </item>
+        <item>意大利             *+39   </item>
+        <item>科特迪瓦           *+225  </item>
+        <item>牙买加             *+1876 </item>
+        <item>日本               *+81   </item>
+        <item>约旦               *+962  </item>
+        <item>柬埔寨             *+855  </item>
+        <item>哈萨克斯坦         *+327  </item>
+        <item>肯尼亚             *+254  </item>
+        <item>韩国               *+82   </item>
+        <item>科威特             *+965  </item>
+        <item>吉尔吉斯坦         *+331  </item>
+        <item>老挝               *+856  </item>
+        <item>拉脱维亚           *+371  </item>
+        <item>黎巴嫩             *+961  </item>
+        <item>莱索托             *+266  </item>
+        <item>利比里亚           *+231  </item>
+        <item>利比亚             *+218  </item>
+        <item>列支敦士登         *+423  </item>
+        <item>立陶宛             *+370  </item>
+        <item>卢森堡             *+352  </item>
+        <item>澳门               *+853  </item>
+        <item>马达加斯加         *+261  </item>
+        <item>马拉维             *+265  </item>
+        <item>马来西亚           *+60   </item>
+        <item>马尔代夫           *+960  </item>
+        <item>马里               *+223  </item>
+        <item>马耳他             *+356  </item>
+        <item>马里亚那群岛       *+1670 </item>
+        <item>马提尼克           *+596  </item>
+        <item>毛里求斯           *+230  </item>
+        <item>墨西哥             *+52   </item>
+        <item>摩尔多瓦           *+373  </item>
+        <item>摩纳哥             *+377  </item>
+        <item>蒙古               *+976  </item>
+        <item>蒙特塞拉特岛       *+1664 </item>
+        <item>摩洛哥             *+212  </item>
+        <item>莫桑比克           *+258  </item>
+        <item>纳米比亚           *+264  </item>
+        <item>瑙鲁               *+674  </item>
+        <item>尼泊尔             *+977  </item>
+        <item>荷属安的列斯       *+599  </item>
+        <item>荷兰               *+31   </item>
+        <item>新西兰             *+64   </item>
+        <item>尼加拉瓜           *+505  </item>
+        <item>尼日尔             *+227  </item>
+        <item>尼日利亚           *+234  </item>
+        <item>朝鲜               *+850  </item>
+        <item>挪威               *+47   </item>
+        <item>阿曼               *+968  </item>
+        <item>巴基斯坦           *+92   </item>
+        <item>巴拿马             *+507  </item>
+        <item>巴布亚新几内亚     *+675  </item>
+        <item>巴拉圭             *+595  </item>
+        <item>秘鲁               *+51   </item>
+        <item>菲律宾             *+63   </item>
+        <item>波兰               *+48   </item>
+        <item>法属玻利尼西亚     *+689  </item>
+        <item>葡萄牙             *+351  </item>
+        <item>波多黎各           *+1787 </item>
+        <item>卡塔尔             *+974  </item>
+        <item>留尼旺             *+262  </item>
+        <item>罗马尼亚           *+40   </item>
+        <item>俄罗斯             *+7    </item>
+        <item>圣卢西亚           *+1758 </item>
+        <item>圣文森特岛         *+1784 </item>
+        <item>东萨摩亚(美)       *+684  </item>
+        <item>西萨摩亚           *+685  </item>
+        <item>圣马力诺           *+378  </item>
+        <item>圣多美和普林西比   *+239  </item>
+        <item>沙特阿拉伯         *+966  </item>
+        <item>塞内加尔           *+221  </item>
+        <item>塞舌尔             *+248  </item>
+        <item>塞拉利昂           *+232  </item>
+        <item>新加坡             *+65   </item>
+        <item>斯洛伐克           *+421  </item>
+        <item>斯洛文尼亚         *+386  </item>
+        <item>所罗门群岛         *+677  </item>
+        <item>索马里             *+252  </item>
+        <item>南非               *+27   </item>
+        <item>西班牙             *+34   </item>
+        <item>斯里兰卡           *+94   </item>
+        <item>圣卢西亚           *+1758 </item>
+        <item>圣文森特           *+1784 </item>
+        <item>苏丹               *+249  </item>
+        <item>苏里南             *+597  </item>
+        <item>斯威士兰           *+268  </item>
+        <item>瑞典               *+46   </item>
+        <item>瑞士               *+41   </item>
+        <item>叙利亚             *+963  </item>
+        <item>台湾省             *+886  </item>
+        <item>塔吉克斯坦         *+992  </item>
+        <item>坦桑尼亚           *+255  </item>
+        <item>泰国               *+66   </item>
+        <item>多哥               *+228  </item>
+        <item>汤加               *+676  </item>
+        <item>特立尼达和多巴哥   *+1809 </item>
+        <item>突尼斯             *+216  </item>
+        <item>土耳其             *+90   </item>
+        <item>土库曼斯坦         *+993  </item>
+        <item>乌干达             *+256  </item>
+        <item>乌克兰             *+380  </item>
+        <item>阿拉伯联合酋长国   *+971  </item>
+        <item>英国               *+44   </item>
+        <item>美国               *+1    </item>
+        <item>乌拉圭             *+598  </item>
+        <item>乌兹别克斯坦       *+233  </item>
+        <item>委内瑞拉           *+58   </item>
+        <item>越南               *+84   </item>
+        <item>也门               *+967  </item>
+        <item>南斯拉夫           *+381  </item>
+        <item>南非               *+27   </item>
+        <item>津巴布韦           *+263  </item>
+        <item>扎伊尔             *+243  </item>
+        <item>赞比亚             *+260  </item>
+
+    </string-array>
+    <string name="about">关于</string>
+    <string name="about_help_content1">
+        为防止后台被杀，请确认锁定任务，方法是点击手机下方的多任务键-找到本软件-下移-点击"锁定任务"\n
+        或设置-电池-锁屏清理应用-本软件(不清理)\n
+        为防止后台掉线，请确认:\n
+        设置-Wifi-睡眠期间Wifi始终连接\n
+        如果手机安装了手机卫士、手机管家类软件，请把本软件加入清理、加速的白名单\n\n
+        小米手机请在手机设置的电量和性能中，关闭本软件的“神隐模式”，或后台配置为"无限制"\n
+        华为手机在设置-电池-锁屏清理或受保护应用里，保护或不清理本软件。本软件菜单偏好勾选"强力在线"。8.0手机本软件手动管理，允许后台活动\n
+        另外在设置-应用管理-设置-特殊访问权限-忽略电池优化-本软件(允许)\n
+        vivo手机请在i管家->省电管理->后台高耗电->允许本软件运行。另外本软件加入"加速白名单"\n
+        oppo手机请设置电池-关闭"后台冻结"\n
+        三星手机在安装时请打开“自动运行”\n
+        其他手机也请检查相关设置，确保系统不会限制程序后台功能
+    </string>
+    <string name="about_help_content2">
+        推荐使用本软件蓝牙遥控按键、蓝牙手咪、对讲手机，按下讲话，松开结束。详情点击 配件 按钮\n
+        Android手机也可使用线控耳机、蓝牙耳机的电话键。短按开始，短按结束
+    </string>
+    <string name="about_help_content3">
+        滔滔对讲使用完全免费，请放心使用!\n
+        更多问题，请进QQ群讨论：452570602\n
+        企业用户、SDK集成及商务合作，请联系QQ 1431429045 群辉科技或邮箱kylindev@qq.com
+    </string>
+    <string name="about_help_title1">后台长连接</string>
+    <string name="about_help_title2">黑屏起麦</string>
+    <string name="about_help_title3">其他</string>
+    <string name="about_sms_help">
+        1.使用前请给与APP短信发送权限。
+    </string>
+    <string name="accept">接受</string>
+    <string name="accessory">配件</string>
+    <string name="accessory_intro">软件专用配件，包括对讲手机、蓝牙按键、手咪、对讲机链路器等。黑屏对讲，一键起麦</string>
+    <string name="account">账号</string>
+    <string name="add">添加</string>
+    <string name="add_contact">添加好友</string>
+    <string name="add_you_as_contact">添加你为好友</string>
+    <string name="agree">同意接受</string>
+    <string name="alert_call_about">关于“滔滔叫车宝”</string>
+    <string name="alert_call_reboot">远程重启接单系统</string>
+    <string name="alert_volume">提示音量</string>
+    <string name="allow_order_bg">允许叫车宝用户任何界面抢单</string>
+    <string name="app_name">北交信通调度</string>
+    <string name="apply_sent">已发送申请</string>
+    <string name="as_contact">为好友？</string>
+    <string name="auth_back">取消踢出</string>
+    <string name="auth_kick">踢出频道</string>
+    <string name="auth_monitor">设为副管</string>
+    <string name="auth_mute">设置禁言</string>
+    <string name="auth_prior">允许插话</string>
+    <string name="auth_unmonitor">撤销副管</string>
+    <string name="auth_unmute">取消禁言</string>
+    <string name="auth_unprior">禁止插话</string>
+    <string name="auto_login">下次启动时自动登录</string>
+    <string name="be_kicked">您的账号在其他设备登录，本地已断开</string>
+    <string name="ble_scan_tip">如果搜不到设备，在手机-设置里，打开定位信息，并给软件定位权限</string>
+    <string name="bt_click">蓝牙按键支持点按</string>
+    <string name="buy">购买</string>
+    <string name="call_about">什么是滔滔叫车宝</string>
+    <string name="call_details">“滔滔叫车宝”是北京群辉科技发布的一款电话叫车解决方案,具有简洁、高效、灵活的特点。\n        该解决方案只需简单的安装自动转接系统就可让滔滔客户端变身成为一个司机接单客户端。\n使用流程：\n1.乘客来电。\n2.转接系统自动接听并播报提示音。\n3.乘客报目的地，语音时实转发到司机终端。\n4.乘客挂机。\n5.司机抢单。
+    </string>
+    <string name="call_setting">叫车接单设置</string>
+    <string name="call_sms_text">短信内容</string>
+    <string name="cancel">取消</string>
+    <string name="cant_add_yourself">不能添加自己为好友</string>
+    <string name="car_chan">营运车-叫车宝体验(#6704)</string>
+    <string name="change_chan_name">改频道名</string>
+    <string name="change_chan_pwd">修改口令</string>
+    <string name="change_nick">修改昵称</string>
+    <string name="change_pwd">修改密码</string>
+    <string name="chanid">#%1$d</string>
+    <string name="channel">频道</string>
+    <string name="channelId">频道号</string>
+    <string name="channelName">频道名称</string>
+    <string name="channel_comment">申请附言，供群主审核</string>
+    <string name="channel_detail">频道详情</string>
+    <string name="channel_id">频道号</string>
+    <string name="channel_id_bad_format">频道号格式错误，请重试</string>
+    <string name="channel_keyword">频道号/频道名称</string>
+    <string name="channel_kouling">频道口令</string>
+    <string name="channel_name">频道名称</string>
+    <string name="channel_name_bad_format">频道名称格式错误，请重试</string>
+    <string name="channel_no_bad_format">号码格式错误，请重试</string>
+    <string name="channel_pwd">频道口令(4位数字，不填表示不设口令)</string>
+    <string name="channel_pwd_bad_format">口令应为4位数字，请重试</string>
+    <string name="chat_history">语音记录</string>
+    <string name="check_rule_first">请确认阅读并同意《服务协议》</string>
+    <string name="check_update">检查新版本</string>
+    <string name="close">关闭</string>
+    <string name="code_bad_format">验证码格式错误，请确认</string>
+    <string name="confirm_delete_chan">将被永久删除，是否继续?</string>
+    <string name="confirm_delete_contact">删除好友？</string>
+    <string name="confirm_float_permission">请确认在手机设置中，打开滔滔的悬浮窗权限</string>
+    <string name="confirm_quit_chan">退出后将不再显示此频道，是否继续?</string>
+    <string name="confirm_set_private">设为私密频道后，其他人搜索不到。是否继续？</string>
+    <string name="confirm_set_public">设为公开频道后，其他人能搜索到。是否继续？</string>
+    <string name="connectFailed">连接失败</string>
+    <string name="connect_fail">连接服务器失败</string>
+    <string name="connect_fail_please_retry">连接失败，请重试</string>
+    <string name="connected">在线</string>
+    <string name="connecting_device">连接设备...</string>
+    <string name="connectionClosed">连接断开</string>
+    <string name="connectionRefused">拒绝连接</string>
+    <string name="contact">好友</string>
+    <string name="create">创建</string>
+    <string name="create_channel">创建频道</string>
+    <string name="creator_nick">创建者</string>
+    <string name="debug">调试</string>
+    <string name="decline">拒绝</string>
+    <string name="delete">删除</string>
+    <string name="delete_all_channel_records">删除全部频道记录?</string>
+    <string name="delete_channel">删除频道</string>
+    <string name="delete_current_channel_record">删除当前频道记录?</string>
+    <string name="delete_history_information">删除历史记录</string>
+    <string name="detail">详情</string>
+    <string name="detail_rule">北京群辉科技有限公司PTT产品许可及服务协议\n重要须知\n\n北京群辉科技有限公司（以下简称北京群辉）在此特别提醒用户认真阅读、充分理解本《软件许可及服务协议》（下称“协议”）,未成年人应在法定监护人陪同下阅读。除非用户接受本协议所有条款，否则用户无权下载、安装或使用本软件及其相关服务。用户的下载、安装、使用、帐号获取和登录等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。\n本协议是用户与北京群辉之间关于用户下载、安装、使用、复制PTT软件（下称“本软件”）；使用、管理帐号；以及使用北京群辉相关服务所订立的协议。本协议描述北京群辉与用户之间关于软件许可使用及服务相关方面的权利义务。\n本协议可由北京群辉在必要时通过在网页上发出公告等合理方式随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知。用户可重新下载安装本软件或通过网页查阅最新版协议条款。在北京群辉修改协议条款后，如果用户不接受修改后的条款，有权停止使用北京群辉提供的软件和服务，用户继续使用北京群辉提供的软件和服务将被视为已接受了修改后的协议，当发生有关争议时，以最新的服务条款为准。用户使用本软件相关服务，应受相关服务条款的约束，并自觉遵守该相关服务条款的全部约定。\n\n1 知识产权声明\n1.1软件的一切版权、商标权、专利权、商业秘密等知识产权，以及与软件相关的所有信息内容，包括但不限于：文字表述及其组合、图标、图饰、图表、色彩、界面设计、版面框架、有关数据、印刷材料、或电子文档等均受中华人民共和国著作权法、商标法、专利法、反不正当竞争法和相应的国际条约以及其他知识产权法律法规的保护，除涉及第三方授权的软件或技术外，北京群辉享有上述知识产权。 1.2 未经北京群辉书面同意，用户不得为任何营利性或非营利性的目的自行实施、利用、转让或许可任何三方实施、利用、转让上述知识产权，北京群辉保留追究上述未经许可行为的权利。2 软件授权范围\n\n2.1 用户可以在单一台终端设备上安装、使用、显示、运行本软件。用户不得对本软件或者本软件运行过程中释放到任何终端内存中的数据及本软件运行过程中客户端与服务器端的交互数据进行复制、更改、修改、挂接运行或创作任何衍生作品，形式包括但不限于使用非北京群辉提供的插件、外挂或非经授权的第三方工具/服务接入本软件和相关系统。 2.2 保留权利：未明示授权的其他一切权利仍归北京群辉所有。\n\n3 用户使用须知\n\n3.1 用户有义务妥善保管其登录帐号和密码，并就其帐号及密码项下的一切活动负全部责任。如因用户自身原因导致被他人获悉自己的帐号资料（包括但不限于帐号名称、密码、个人信息），从而导致的损失由用户本人承担。\n\n3.2 用户在遵守法律及本协议的前提下可依本协议使用本软件。用户无权实施包括但不限于下列行为：\n\n3.2.1 用户通过非北京群辉开发、授权或认可的第三方兼容软件、系统登录或使用北京群辉软件及服务，用户针对北京群辉的软件和服务使用非北京群辉开发、授权或认证的插件；\n\n3.2.2 删除本软件及其他副本上所有关于版权的信息、内容；\n\n3.2.3 对本软件进行反向工程、反向汇编、反向编译等；\n\n3.2.4 对于本软件相关信息等，未经北京群辉书面同意，用户擅自实施包括但不限于下列行为：使用、出租、出借、复制、修改、链接、转载、汇编、发表、出版，建立镜像站点、擅自借助本软件发展与之有关的衍生产品、作品、服务、插件、外挂、兼容、互联等。\n\n3.2.5 利用本软件发表、传送、传播、储存违反国家法律、危害国家安全、祖国统一、社会稳定、公序良俗的内容，或任何不当的、侮辱诽谤的、淫秽的、暴力的及任何违反国家法律法规政策的内容。\n\n3.2.6 利用本软件发表、传送、传播、储存侵害他人知识产权、商业秘密权等合法权利的内容；\n\n3.2.7 制造虚假身份以误导、欺骗他人；\n\n3.2.8 利用本软件批量发表、传送、传播广告信息及垃圾信息；\n\n3.2.9 进行任何危害计算机网络安全的行为，包括但不限于：使用未经许可的数据或进入未经许可的服务器/帐号；未经允许进入公众计算机网络或者他人计算机系统并删除、修改、增加存储信息；未经许可，企图探查、扫描、测试本软件系统或网络的弱点或其它实施破坏网络安全的行为；企图干涉、破坏本软件系统或网站的正常运行，故意传播恶意程序或病毒以及其他破坏干扰正常网络信息服务的行为；伪造TCP/IP数据包名称或部分名称；\n\n3.2.10 其他以任何不合法的方式、为任何不合法的目的、或以任何与本协议不一致的方式使用本软件和北京群辉提供的其他服务；\n\n3.2.11用户若违反上述规定，北京群辉有权采取终止、完全或部分中止、限制用户帐号的使用功能。\n\n3.3对于用户违法或违反本协议的使用而引起的一切责任，由用户负全部责任，一概与北京群辉及合作单位无关；导致北京群辉及合作单位损失的，北京群辉及合作单位有权要求用户赔偿，并有权保留相关记录。同时北京群辉有权视用户的行为性质，在不事先通知用户的情况下，采取包括但不限于中断使用许可、停止提供服务、限制使用、冻结或注销用户帐号、法律追究等措施。\n\n3.4 本软件同大多数互联网软件一样，受包括但不限于用户原因、网络服务质量、社会环境等因素的差异影响，可能受到各种安全问题的侵扰，如他人利用用户的资料，造成现实生活中的骚扰；用户下载安装的其它软件或访问的其他网站中含有“特洛伊木马”等病毒，威胁到用户的计算机信息和数据的安全，继而影响本软件的正常使用等等。用户应加强信息安全及使用者资料的保护意识，要注意加强密码保护，以免遭致损失和骚扰。\n\n3.5 非经北京群辉授权开发并正式发布的其它任何由本软件衍生的软件均属非法，下载、安装、使用此类软件，将可能导致不可预知的风险，由此产生的一切法律责任与纠纷一概与北京群辉无关。\n\n3.6 尊重用户个人隐私信息的私有性是北京群辉的一贯制度，北京群辉将会采取合理的措施保护用户的个人隐私信息，除法律要求或其他北京群辉认为必要的情况之外，北京群辉不会向合作单位以外的第三方公开或透露用户的个人资料及保存在北京群辉各项服务中的非公开内容。\n\n4 软件的安装使用、升级及终止\n\n4.1 用户接受本协议条款并完成相应的安装程序后，便成为本软件的使用者。用户同意并了解，只有在用户遵守与北京群辉之间签署的协议且该协议有效的情况下，用户方可使用本软件及北京群辉提供的与本软件有关的服务。\n\n4.2 北京群辉保留在任何时候为用户提供本软件的修改、升级版本的权利，以及为修改或升级服务收取费用的权利。软件新版本发布后，北京群辉不保证旧版本软件的继续可用。\n\n4.3用户拥有未经事先通知北京群辉的情况下，自行中断或终止本软件使用，自行卸载本软件的权利。用户知悉本软件卸载后无法再使用本软件功能及相关服务。\n\n4.4北京群辉拥有未经事先通知用户而修改软件功能、中断或中止软件使用的权利。北京群辉行使修改或中断软件使用的权利而造成任何损失的，用户同意北京群辉不需对用户或任何第三方负责。\n\n5 北京群辉和/或合作单位将根据市场与技术的发展，向用户提供与本软件相关的各种互联网以及移动通信增值服务，包括免费和收费的增值服务。北京群辉和/或合作单位保留对相关增值服务收取费用及改变收费标准、方式的权利；如相关服务由免费变更为收费服务，北京群辉和/或合作单位将以适当的形式通知，用户可自主选择接受或拒绝收费服务，并保证在使用收费服务时，将按照北京群辉和/或合作单位相关收费规定支付费用，如拒付或拖欠费用，北京群辉和/或合作单位有权停止服务，并依法追偿损失及赔偿。\n\n6北京群辉有权在服务中或经过服务投放各种广告和宣传信息，任何这类促销方法，包括运输货物、付款、服务、商业条件、担保及与广告有关的描述都只是在相应的用户和广告销售商之间发生。北京群辉不承担任何责任，北京群辉没有义务为这类广告销售负任何一部分的责任。\n\n7若用户对本软件有任何意见或改进的建议，均可向北京群辉提出。请注意，如果您这样做，还会授予北京群辉和第三方在本软件（北京群辉其他软件或第三方软件）中无偿使用和加入您的意见或建议的权利。\n\n8. 法律责任与不可抗力条款\n\n8.1 北京群辉特别提请用户注意：北京群辉为了保障公司业务发展和调整的自主权，北京群辉拥有随时自行修改或中断软件授权而不需通知用户的权利，如有必要，修改或中断会以通告形式公布于翼信网站重要页面上。\n\n8.2 用户违反本协议或相关的服务条款的规定，导致或产生的任何第三方主张的任何索赔、要求或损失，包括合理的律师费，用户同意赔偿北京群辉与合作公司、关联公司，并使之免受损害。\n\n8.3 用户理解并同意自主选择下载和／或使用本软件和所有与本软件一同提供或通过本软件提供的第三方软件，风险自负，并且对于因下载或使用本软件和此类第三方软件而对计算机系统造成的损坏或数据的丢失，用户应承担全部责任。\n\n8.4 北京群辉对不可抗力导致的损失不承担责任。本服务条款所指不可抗力包括：天灾、法律法规或政府指令的变更，因网络服务特性而特有的原因，例如境内外基础电信运营商的故障、计算机或互联网相关技术缺陷、互联网覆盖范围限制、计算机病毒、黑客攻击等因素，及其他合法范围内的不能预见、不能避免并不能克服的客观情况。\n\n9.内容所有权\n\n内容的定义包括本软件：文字、软件、声音、相片、视频、图表；在广告中的全部内容。所有这些内容均属于北京群辉及相关权利人，并受版权、商标、专利和其它财产所有权法律的保护。所以，用户只能在北京群辉和相关权利人授权下才能使用这些内容，而不能擅自复制、再造这些内容、或创造与内容有关的派生产品。\n\n10.法律适用\n\n10.1本协议受中华人民共和国法律的约束并依据其解释。如出现纠纷，用户和北京群辉一致同意将纠纷交由北京市西城区人民法院管辖。\n\n10.2如本协议中的任何条款因任何原因被判定为完全或部分无效或不具有执行力的，该无效或不具有执行力的条款将被最接近原条款意图的一项有效并可执行的条款所替代，并且本协议的其余条款仍应有效并且有执行力。\n\n11 权利声明\n\n北京群辉不行使、未能及时行使或者未充分行使本条款或者按照法律规定所享有的权利，不应被视为放弃该权利，也不影响北京群辉在将来行使该权利。</string>
+    <string name="device_disc_click_to_reconnect">设备未连接\n点击图标开始连接</string>
+    <string name="device_list">设备列表</string>
+    <string name="device_ok_click_to_disconnect">设备已连接\n点击图标可断开</string>
+    <string name="different_pwd">两次输入不同，请重试</string>
+    <string name="disconnected">离线</string>
+    <string name="enable_auto_launch">开机自启动</string>
+    <string name="enable_float_btn">悬浮对讲键</string>
+    <string name="ent_username_hint">账号</string>
+    <string name="exp_chan">滔滔体验频道(#1024)</string>
+    <string name="fix_3s">解决蓝牙无法拾音问题</string>
+    <string name="fix_mtu">T3手咪MTU固定23</string>
+    <string name="fix_mtu_help">如果T3手咪异常断开，尝试勾选并重启app</string>
+    <string name="forbid_bt_mic_help">连接蓝牙耳机时，默认使用蓝牙话筒。勾选此项禁用蓝牙话筒</string>
+    <string name="forbid_bt_record">禁用蓝牙话筒</string>
+    <string name="force_tcp">音频数据始终使用TCP</string>
+    <string name="force_tcp_help">勾选后，消耗更多流量</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="get_sms">获取短信验证码</string>
+    <string name="ham_chan">全国HAM通联(#6702)</string>
+    <string name="ham_notif">HAM风格提示音</string>
+    <string name="handmic_alarm">手咪追加提示音</string>
+    <string name="handmic_alarm_help">勾选后，手咪自身也会播放起麦、放麦、占线提示音</string>
+    <string name="headset_help">支持普通线控耳机和蓝牙耳机/音箱电话键对讲。单击开始，单击结束</string>
+    <string name="help">帮助</string>
+    <string name="history">历史记录</string>
+    <string name="history_hours">记录时长(小时): </string>
+    <string name="homepage_link">www.allptt.com</string>
+    <string name="i_begin">自己起麦</string>
+    <string name="i_create">我在滔滔对讲创建了频道[</string>
+    <string name="i_in_totalk">我在滔滔对讲的[</string>
+    <string name="i_stop">自己放麦</string>
+    <string name="idle">空闲</string>
+    <string name="input_again">请再输入一次</string>
+    <string name="input_auth_number">输入验证码</string>
+    <string name="input_new_pwd">请输入新密码</string>
+    <string name="input_nickname">请设置昵称</string>
+    <string name="input_old_pwd">请输入原密码</string>
+    <string name="input_phonenumber">请输入手机号</string>
+    <string name="input_verify_code">请输入收到的短信验证码</string>
+    <string name="invalid_phone">手机号无效，请重新确认</string>
+    <string name="is_public_channel">是否可搜索</string>
+    <string name="is_show_pass_channel">是否显示口令</string>
+    <string name="join">加入</string>
+    <string name="join_channel">加入频道</string>
+    <string name="kouling">口令</string>
+    <string name="leave">离开</string>
+    <string name="link_relogin_help">当其他终端登录此账号，会自动重新登录</string>
+    <string name="listen_ok">监听频道</string>
+    <string name="loading">加载中</string>
+    <string name="logging_in">登录中，请稍候...</string>
+    <string name="login">登录</string>
+    <string name="login_fail">登录失败</string>
+    <string name="manage_member_auth">成员权限管理</string>
+    <string name="map_notice">进入地图界面后，当前频道里其他在线用户能看到您的位置，是否继续？</string>
+    <string name="member_list">成员列表</string>
+    <string name="more">更多</string>
+    <string name="more_heartbeat">后台强力在线</string>
+    <string name="more_heartbeat_help">勾选后，软件后台更稳定在线，主要针对华为7.0以上系统手机</string>
+    <string name="motor_chan">全国摩友之家(#1302)</string>
+    <string name="myid">用户号: %1$d</string>
+    <string name="mynick">昵    称: %1$s</string>
+    <string name="myusername">用户名: %1$s</string>
+    <string name="name">名称</string>
+    <string name="need_apply">新成员加入需群主审核</string>
+    <string name="need_corse_location_permission">需要权限连接蓝牙外设</string>
+    <string name="need_mic_permission">对讲需要录音权限</string>
+    <string name="net_fail">网络未连接</string>
+    <string name="net_fail_retry">网络连接中断，正在尝试重连\n如果后台自动掉线，请点此查看帮助</string>
+    <string name="new_apply">新申请</string>
+    <string name="new_chan_pwd">新口令(4位数字，不填表示不设口令)</string>
+    <string name="next_page">下一页</string>
+    <string name="nick_bad_format">昵称格式错误，请重试</string>
+    <string name="nick_needed">请设置昵称</string>
+    <string name="nickname">昵称</string>
+    <string name="no_pwd">无需口令</string>
+    <string name="noname">未命名</string>
+    <string name="normal">普通</string>
+    <string name="notif">提示</string>
+    <string name="notif_style">提示音风格</string>
+    <string name="notification">提示音</string>
+    <string name="offline">离线</string>
+    <string name="ok">确定</string>
+    <string name="one">一个吧！</string>
+    <string name="online">上线</string>
+    <string name="or">或者</string>
+    <string name="other_begin">别人起麦</string>
+    <string name="other_setting">其他设置</string>
+    <string name="other_setting_help">其他设置</string>
+    <string name="other_setting_sms">短信通知设置</string>
+    <string name="other_stop">别人放麦</string>
+    <string name="password">密码</string>
+    <string name="password_bad_format">密码格式错误，请重试</string>
+    <string name="password_different">两次输入密码不一致，请重试</string>
+    <string name="personal_username_hint">用户号/手机号</string>
+    <string name="phone">手机:(+%1$s)%2$s</string>
+    <string name="phone_bad_format">号码格式错误，请重试</string>
+    <string name="phone_number">手机号</string>
+    <string name="playback_duration">%1$d\'\'</string>
+    <string name="press_key">请按下实体键(禁止耳机电话键)</string>
+    <string name="prev_page">上一页</string>
+    <string name="private_channel">私密频道</string>
+    <string name="ptt_broadcast_help">注：某些手机有专门PTT按键，并可发送按键广播。设置后，可实现后台和黑屏状态下对讲。滔滔内置支持按下：android.intent.action.PTT.down，松开android.intent.action.PTT.up广播值\n广播值请咨询手机厂家</string>
+    <string name="ptt_down">PTT按下</string>
+    <string name="ptt_key_def">PTT按键定义</string>
+    <string name="pull_load_more">下拉刷新</string>
+    <string name="push_to_talk">按住说话</string>
+    <string name="pwd">口令</string>
+    <string name="quick_switch_ch">快速切换频道(只限地图)</string>
+    <string name="quit">退出</string>
+    <string name="quit_app">退出应用</string>
+    <string name="quit_channel">退出频道</string>
+    <string name="recommand_channel_warning">公共频道，文明聊天</string>
+    <string name="recommand_channel_warning_detail">污言秽语、不当言行者踢出频道、全站封禁或向网监部门举报</string>
+    <string name="recommand_public_channels">推荐公共频道：</string>
+    <string name="record_help">默认音质优化。若讲话音量小或蓝牙录音异常\n请尝试选择普通模式</string>
+    <string name="record_mode">录音设置</string>
+    <string name="recordmode_normal">普通模式</string>
+    <string name="recordmode_other1">其他1</string>
+    <string name="recordmode_other2">其他2</string>
+    <string name="recordmode_other3">其他3</string>
+    <string name="recordmode_other4">其他4</string>
+    <string name="recordmode_other5">其他5</string>
+    <string name="recordmode_other6">其他6</string>
+    <string name="recordmode_process">音质优化</string>
+    <string name="reg_fail">注册失败，本手机号可能已注册过!</string>
+    <string name="reg_ok">恭喜，注册成功！\n您的滔滔号是</string>
+    <string name="register">注册</string>
+    <string name="register_new_user">注册新用户</string>
+    <string name="registering">注册中，请稍候...</string>
+    <string name="release_to_load">松开加载</string>
+    <string name="relogin_after_minute">链路自动尝试登录</string>
+    <string name="reset_pwd">重设密码</string>
+    <string name="reset_pwd_fail">重设密码失败，请稍后重试</string>
+    <string name="reset_pwd_ok">重设密码成功，请重新登录!</string>
+    <string name="scan_to_download">扫码下载</string>
+    <string name="scaning_device">搜索设备...</string>
+    <string name="search_channel">搜索频道</string>
+    <string name="search_handmic">搜索新设备</string>
+    <string name="searchable_chan">公开频道(允许其他人搜索到)</string>
+    <string name="select_country">选择国家地区</string>
+    <string name="send_again">重新发送(</string>
+    <string name="send_sms_to">即将发送验证短信到</string>
+    <string name="sent_and_wait">已发送...(</string>
+    <string name="server_full">服务器人数已达上限，拒绝登录</string>
+    <string name="server_ip">服务器地址</string>
+    <string name="service_rule">服务协议</string>
+    <string name="set_broadcast">设置按键广播值</string>
+    <string name="set_count">账号设置</string>
+    <string name="set_new_password">设置新密码(6位以上)</string>
+    <string name="set_nick">设置昵称</string>
+    <string name="set_password">请设置密码</string>
+    <string name="set_password_again">请再次输入密码</string>
+    <string name="set_pwd">设置密码(6位以上)</string>
+    <string name="settings">偏好</string>
+    <string name="share">分享</string>
+    <string name="share_channel">分享频道</string>
+    <string name="share_content">我正在用滔滔对讲，群组实时语音沟通，来聊聊吧！下载地址：http://t.cn/RaQ3Wo8，淘宝：http://t.cn/RWCPAZ0</string>
+    <string name="short_delay">低延时接收(实验)</string>
+    <string name="short_delay_help">勾选后，接收语音延时更短，但网络不稳定时可能声音不连续</string>
+    <string name="stop_search_handmic">停止搜索</string>
+    <string name="submit">提交</string>
+    <string name="submitting">提交中...</string>
+    <string name="support_headset_key">线控及蓝牙电话键起麦</string>
+    <string name="support_vol_key">音量键对讲</string>
+    <string name="syncing">同步数据...</string>
+    <string name="thanks">感谢@风清扬@大董@子涵@常利@我不是许三多@BG7AAP@BG9NVY-宁夏@金肛oO闪闪亮@Arius 等的大力支持！</string>
+    <string name="tmp_call">选呼</string>
+    <string name="tvQQ"><a href="https://jq.qq.com/?_wv=1027&amp;k=5Q5MvfP">QQ:452570602</a></string>
+    <string name="unknown_device">未知设备</string>
+    <string name="use_accessory">使用配件</string>
+    <string name="user_or_password_wrong">用户名或密码错误</string>
+    <string name="userid_bad_format">用户名或号码格式错误，请重试</string>
+    <string name="verify_fail">验证失败</string>
+    <string name="verify_ok">验证成功</string>
+    <string name="verify_phone">验证手机号</string>
+    <string name="verify_sent">验证码已发送</string>
+    <string name="when_down">按下时</string>
+    <string name="when_up">松开时</string>
+    <string name="wrong_client_type">客户端版本类型不匹配，请重试</string>
+    <string name="wrong_old_pwd">原密码不正确，请重试</string>
+    <string name="wrong_version">客户端版本低，请先升级</string>
+    <string name="you_have_not">您还没有频道，请立刻</string>
+</resources>
