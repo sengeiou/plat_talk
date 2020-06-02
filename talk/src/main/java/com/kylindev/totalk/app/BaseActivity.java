@@ -1,8 +1,8 @@
 package com.kylindev.totalk.app;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothDevice;
 import android.content.ActivityNotFoundException;
@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -29,6 +30,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kylindev.pttlib.LibConstants;
 import com.kylindev.pttlib.service.BaseServiceObserver;
@@ -42,16 +44,20 @@ import com.kylindev.pttlib.service.model.Channel;
 import com.kylindev.pttlib.service.model.Contact;
 import com.kylindev.pttlib.service.model.User;
 import com.kylindev.totalk.AppConstants;
-//import com.kylindev.totalk.MainApp;
-import com.kylindev.totalk.MainApp;
 import com.kylindev.totalk.R;
+import com.kylindev.totalk.bjxt.SePortActivity;
 import com.kylindev.totalk.chat.RecyclerViewChatActivity;
 import com.kylindev.totalk.utils.AppCommonUtil;
 import com.kylindev.totalk.utils.AppSettings;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import util.HexUtil;
 
 import static com.kylindev.pttlib.LibConstants.INTERPTT_SERVICE;
 import static com.kylindev.pttlib.service.InterpttService.ConnState;
@@ -59,12 +65,247 @@ import static com.kylindev.pttlib.service.InterpttService.ConnState.CONNECTION_S
 import static com.kylindev.pttlib.service.InterpttService.ConnState.CONNECTION_STATE_CONNECTING;
 import static com.kylindev.pttlib.service.InterpttService.ConnState.CONNECTION_STATE_SYNCHRONIZING;
 
-public abstract class BaseActivity extends Activity implements OnClickListener {
+//import com.kylindev.totalk.MainApp;
+
+public abstract class BaseActivity extends SePortActivity implements OnClickListener {
+
+    byte formData[] = new byte[1024];
+    int len232 = 0;//接收到的数据长度
+    int len = 0;//数据总长度
+    boolean isStart232 = false;
+    String mEncodeHexStr;
+    final java.util.Timer timer = new java.util.Timer(true);
+    private boolean valid = true;
+    private String mHexStringToString;
+    String A1 = "AA5531";
+    String A2 = "AA5532";
+    String A3 = "01";
+    String A4 = "02";
+    String ackStart = "AA 55 00 05 80 F1 02 01 00 88";
+    String ackStop = "AA 55 00 05 80 F1 02 02 00 87";
+    String openLink = "AA 55 00 04 B0 F2 01 02 58";
+    String closeLink = "AA 55 00 04 B0 F2 01 00 5A";
+    String openLunch = "AA 55 00 04 B0 F2 01 01 59";
+    String closeLunch = "AA 55 00 04 B0 F2 01 00 5A";
+    String signallingACK = "AA 55 00 04 80 F3 08 00 82";
+    String answer = "AA 55 00 16 00 F4 12 34 56 78 A0 88 12 34 56 FF FF FF FF FF FF FF FF FF FF FF 2A";
+    String request = "AA 55 00 16 00 F4 12 34 56 78 A0 0D 12 34 56 FF FF FF FF FF FF FF FF FF FF FF A5";
+    private String mSubstring;
+
+    public static void onReceived(final byte[] buffer, final int size, final int type) {
+        String hexStr = HexUtil.encodeHexStr(buffer, false, size);
+        String opLink = "AA 55 00 04 B0 F2 01 02 58";
+        String cloLink = "AA 55 00 04 B0 F2 01 00 5A";
+        String ackSta = "AA 55 00 05 80 F1 02 01 00 88";
+        String opLunch = "AA 55 00 04 B0 F2 01 01 59";
+        String ackSto = "AA 55 00 05 80 F1 02 02 00 87";
+        String cloLunch = "AA 55 00 04 B0 F2 01 00 5A";
+
+        boolean specialChar = isSpecialChar(hexStr);
+        boolean messyCode = isMessyCode(hexStr);
+        if (specialChar && messyCode) {
+            //Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
+            Log.e("包含", "包含");
+        } else if (!specialChar && !messyCode) {
+            //去掉16进制中的空格，不然计算或者比较数组越界
+            String ope = opLink.replaceAll(" ", "");
+            String clos = cloLink.replaceAll(" ", "");
+            String ackstar = ackSta.replaceAll(" ", "");
+            String opLun = opLunch.replaceAll(" ", "");
+            String acksto = ackSto.replaceAll(" ", "");
+            String cloLun = cloLunch.replaceAll(" ", "");
+
+            if (hexStr.equals(ope)) {
+                actived = true;
+                Log.e("接收到载波", "接收到载波");
+                mService.userPressDown();
+            } else if (hexStr.equals(clos)) {
+                Log.e("载波消失", "载波消失");
+                mService.userPressUp();
+            } else if (hexStr.equals(ackstar)) {
+                Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
+            }else if (hexStr.equals(opLun)) {
+                Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
+            }else if (hexStr.equals(acksto)) {
+                Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
+            }else if (hexStr.equals(cloLun)) {
+                Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
+            }
+        }
+    }
+
+    @Override
+    protected void onDataReceived(final byte[] buffer, final int size, final int type) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (type == 232) {
+                    Log.i("testData", "ssssssss");
+                    Log.i("testDataSize", String.valueOf(size));
+                    mEncodeHexStr = HexUtil.encodeHexStr(buffer, false, size);
+                    mSubstring = mEncodeHexStr.substring(mEncodeHexStr.length() - 2, mEncodeHexStr.length());
+                    Log.i("hexStr", mEncodeHexStr + "    hexStr");
+                    Log.i("substring", mSubstring + "    substring");
+
+
+                    boolean specialChar = isSpecialChar(mEncodeHexStr);
+                    boolean messyCode = isMessyCode(mEncodeHexStr);
+                    if (specialChar && messyCode) {
+                        Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
+                        Log.e("包含", "包含");
+                    } else if (!specialChar && !messyCode) {
+                        //Toast.makeText(getApplicationContext(),"不包含特殊字符",Toast.LENGTH_SHORT).show();
+                        Log.e("不包含", "不包含");
+                        //去掉16进制中的空格，不然计算活比较数组越界
+                        String open = openLink.replaceAll(" ", "");
+                        String close = closeLink.replaceAll(" ", "");
+                        String start = ackStart.replaceAll(" ", "");
+                        String stop = ackStop.replaceAll(" ", "");
+                        String openlunch = openLunch.replaceAll(" ", "");
+                        String answer1 = answer.replaceAll(" ", "");
+                        String request1 = request.replaceAll(" ", "");
+                        String closelunch = closeLunch.replaceAll(" ", "");
+                        String signallingACK1 = signallingACK.replaceAll(" ", "");
+
+                        if (mEncodeHexStr.equals(start)) {
+                            Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
+                        } else if (mEncodeHexStr.equals(stop)) {
+                            Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
+                        } else if (mEncodeHexStr.equals(open)) {
+                            actived = true;
+                            Log.e("接收到载波", "接收到载波");
+                            mService.userPressDown();
+                        } else if (mEncodeHexStr.equals(close)) {
+                            Log.e("载波消失", "载波消失");
+                            mService.userPressUp();
+                        } else if (mEncodeHexStr.equals(openlunch)) {
+                            Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
+                        } else if (mEncodeHexStr.equals(closelunch)) {
+                            Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
+                        } else if (mEncodeHexStr.equals(signallingACK1)) {
+                            Log.e("信令ack", "信令ack");
+                        } else if (mEncodeHexStr.equals(answer1)) {
+                            String req = "AA 55 00 04 80 F4 88 00 01";
+                            //sendHexString(req.replaceAll("\\s*", ""), "232");
+                        } else if (mEncodeHexStr.equals(request1)) {
+                            String req = "AA 55 00 04 80 F4 0D 00 01 7B";
+                            //sendHexString(req.replaceAll("\\s*", ""), "232");
+                        } else {
+                            //Toast.makeText(getApplicationContext(), "ACK校验失败", Toast.LENGTH_SHORT).show();
+                            //Log.e("ack", "ack对不上");
+                            return;
+                            /*for (int i = 0; i < 3; i++) {
+                                mHandler.postAtTime(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String dat = "A5 01 0C 21 01 00 2C";
+                                        sendHexString(dat.replaceAll("\\s*", ""), "232");
+                                        Log.e("重新请求", "A5 01 0C 21 01 00 2C" + "  七个值");
+                                    }
+                                }, 900);
+                            }*/
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * 校验数据
+     * @param buffer 接收到的数据
+     * @param size 数据长度
+     */
+    private boolean checkData(byte[] buffer, int size) {
+        String strData = HexUtil.encodeHexStr(buffer,false,size);
+        Log.i("TAGstrData收到的数据",strData);
+        /**
+         * 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+         * A 8 0 1 1 2 3 4 5 6  7  8  0  0  A  A
+         *
+         */
+        //total里存放的是累加和
+        int total = 0;
+        for (int i = 0;i<strData.length();i+=2){
+            //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+            total = total + Integer.parseInt(strData.substring(i,i+2),16);
+        }
+        //noTotal为累加和取反加一
+        int noTotal = ~total +1;
+        Log.i("total",String.valueOf(noTotal));
+        String hex = Integer.toHexString(noTotal).toUpperCase();
+        Log.i("TAGhex",hex);
+        String key = hex.substring(hex.length()-2);
+        Log.i("TAG校验码key",key);
+        Log.i("TAGhex",key);
+        if (key.equals(strData.substring(strData.length()-2))){
+            Log.i("jiaoyan","校验成功");
+            return true;
+        }else {
+
+            Log.i("jiaoyan","校验失败");
+            return false;
+        }
+        //Log.i("total", hex.substring(hex.length()-2));
+
+    }
+
+    private static boolean isMessyCode(String strName) {
+        try {
+            Pattern p = Pattern.compile("\\s*|\t*|\r*|\n*");
+            Matcher m = p.matcher(strName);
+            String after = m.replaceAll("");
+            String temp = after.replaceAll("\\p{P}", "");
+            char[] ch = temp.trim().toCharArray();
+
+            int length = (ch != null) ? ch.length : 0;
+            for (int i = 0; i < length; i++) {
+                char c = ch[i];
+                if (!Character.isLetterOrDigit(c)) {
+                    String str = "" + ch[i];
+                    if (!str.matches("[\u4e00-\u9fa5]+")) {
+                        return true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
+     * 判断是否含有特殊字符
+     *
+     * @param str
+     * @return true为包含，false为不包含
+     */
+    public static boolean isSpecialChar(String str) {
+        String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.find();
+    }
+
+    /**
+     * 转化为int类型
+     *
+     * @param bytes
+     * @param size
+     * @return
+     */
+    private int toInt2(byte[] bytes, int size) {
+        return Integer.parseInt(new BigInteger((HexUtil.encodeHexStr(bytes, size).replace(
+                " ", ""
+        )), 16).toString(10));
+    }
 
     /**
      * The InterpttService instance that drives this activity's data.
      */
-    protected InterpttService mService;
+    protected static InterpttService mService;
+//    protected InterpttService mService2;
+
     // Create dialog
     //private ProgressDialog mConnectDialog = null;
     protected Intent mServiceIntent = null;
@@ -73,12 +314,12 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
     //顶部
     protected ImageView mIVBarLeft, mIVBarRight, mIVBarLeftInner, mIVBarRightInner;
-    protected TextView mTVBarTitle,mTVBarCount;
+    protected TextView mTVBarTitle, mTVBarCount;
     protected ViewGroup activityView; //子类布局
 
     private ImageView mIVVoice;
     private TextView mTVConnect;
-    private TextView mTVCurrentChanName, mTVCurrentChanTalker,mTVCurrentChanTalkerBg;
+    private TextView mTVCurrentChanName, mTVCurrentChanTalker, mTVCurrentChanTalkerBg;
     private TextView mTVListenChanName, mTVListenChanTalker;
     private ImageView mIVCurrentChanTalkerDevice, mIVListenChanTalkerDevice;
     private TextView mTVHistoryTalker0, mTVHistoryTalker1, mTVHistoryTalker2;
@@ -100,7 +341,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
      */
     protected ServiceConnection mServiceConnection = null;
 
-    private void initServiceConnection() {
+    public void initServiceConnection() {
         mServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
@@ -141,6 +382,45 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         };
     }
 
+
+    public String makeChecksum(String hexdata) {
+        if (hexdata == null || hexdata.equals("")) {
+            return "00";
+        }
+        hexdata = hexdata.replaceAll(" ", "");
+        int total = 0;
+        int len = hexdata.length();
+        if (len % 2 != 0) {
+            return "00";
+        }
+        int num = 0;
+        while (num < len) {
+            String s = hexdata.substring(num, num + 2);
+            total += Integer.parseInt(s, 16);
+            num = num + 2;
+        }
+        return hexInt(total);
+    }
+
+    private String hexInt(int total) {
+        int a = total / 256;
+        int b = total % 256;
+        if (a > 255) {
+            return hexInt(a) + format(b);
+        }
+        return format(a) + format(b);
+    }
+
+    private String format(int hex) {
+        String hexa = Integer.toHexString(hex);
+        int len = hexa.length();
+        if (len < 2) {
+            hexa = "0" + hexa;
+        }
+        return hexa;
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,6 +429,9 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
         mTVConnect = (TextView) findViewById(R.id.tv_connection_lost);
         mTVConnect.setOnClickListener(this);
+        /*File file = new File("/dev/ashmem");
+        String absolutePath = file.getAbsolutePath();*/
+        //SerialPortUtil.open("/dev/ashmem",19200,0);
 
         //顶部栏
         mIVBarLeft = (ImageView) findViewById(R.id.iv_bar_left);
@@ -161,7 +444,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         mTVBarCount = (TextView) findViewById(R.id.tv_bar_count);
         activityView = (ViewGroup) findViewById(R.id.fl_act_content);
         activityView.addView(View.inflate(this, getContentViewId(), null));
-        mLLlcd=(LinearLayout)  findViewById(R.id.ll_lcd);
+        mLLlcd = (LinearLayout) findViewById(R.id.ll_lcd);
 
         mTVCurrentChanName = (TextView) findViewById(R.id.tv_current_chan_name);
         mIVCurrentChanTalkerDevice = (ImageView) findViewById(R.id.iv_current_talker_device);
@@ -174,6 +457,14 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         mTVHistoryTalker0 = (TextView) findViewById(R.id.tv_history_talker0);
         mTVHistoryTalker1 = (TextView) findViewById(R.id.tv_history_talker1);
         mTVHistoryTalker2 = (TextView) findViewById(R.id.tv_history_talker2);
+
+        findViewById(R.id.img).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(this,MainActivity.class);
+                finish();
+            }
+        });
 
         //可能是首次运行，也可能是用户重新launch
         //因此，先检查service是否在运行，如果是，则直接bind以获取mService实例；如果没有，则startService，再bind
@@ -204,7 +495,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         mLLPttArea = findViewById(R.id.ll_ptt_area);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLLPttArea.getLayoutParams();
         WindowManager wm = this.getWindowManager();
-        params.height =wm.getDefaultDisplay().getHeight()*36/180;
+        params.height = wm.getDefaultDisplay().getHeight() * 36 / 180;
         mLLPttArea.setLayoutParams(params);
         mTVPttTimer = (TextView) findViewById(R.id.tv_ptt_timer);
         mIVPtt = (ImageView) findViewById(R.id.iv_ptt);
@@ -222,6 +513,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
                 }
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
                             ArrayList<String> permissions = new ArrayList<String>();
@@ -261,11 +553,12 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
         getPermissions();
 
-
+        String makeChecksum1 = makeChecksum(answer);
+        Log.e("123",makeChecksum1+"  123");
     }
 
-    public void setIsMap(boolean isMapOrNo){
-        isMap=isMapOrNo;
+    public void setIsMap(boolean isMapOrNo) {
+        isMap = isMapOrNo;
     }
 
     @Override
@@ -273,7 +566,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         Intent bi = new Intent();
         bi.setAction(LibConstants.ACTION_FLOAT_WINDOW_HIDE);
         this.sendBroadcast(bi);
-        isScreenOn=true;
+        isScreenOn = true;
 
         //mService.activityShowing(false);
         //关闭悬窗。在serviceConnected和onResume都需要调用close，因为resume时可能service仍为空，而按home再进入时，不会调用bindService
@@ -290,7 +583,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
     public void onPause() {
         super.onPause();
 
-        isScreenOn=false;
+        isScreenOn = false;
         Intent bi = new Intent();
         bi.setAction(LibConstants.ACTION_FLOAT_WINDOW_SHOW);
         this.sendBroadcast(bi);
@@ -323,23 +616,21 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            boolean selecting = mService!=null && mService.isSelectingContact();
+            boolean selecting = mService != null && mService.isSelectingContact();
             if (selecting) {
                 mService.cancelSelect();
                 return true;
             }
-        }
-        else {
+        } else {
             if (mService != null) {
                 int savedCode = mService.getPttKeycode();
-                if (savedCode!=0 && savedCode==keyCode) {
+                if (savedCode != 0 && savedCode == keyCode) {
                     //至此，说明需要响应ptt事件
 
                     mService.userPressDown();
                     return true;
                 }
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -362,7 +653,11 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
     }
 
     protected abstract void serviceConnected();
+
     protected abstract int getContentViewId();
+
+    private static boolean actived = false;
+    private boolean next = false;
 
     ////////////////////////////////
     private BaseServiceObserver serviceObserver = new BaseServiceObserver() {
@@ -448,6 +743,24 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
         @Override
         public void onLocalUserTalkingChanged(User user, boolean talk) throws RemoteException {
+            Log.e("actived", talk + "  123");
+            if (!actived) {
+                if (talk && !next) {
+                    //String dat = "A5 01 0C 21 01 00 2C";
+                    String dat = "AA 55 00 04 00 F1 02 01 09";
+                    sendHexString(dat.replaceAll("\\s*", ""), "232");
+                    Log.e("PTT_ON", "AA 55 00 04 00 F1 02 01 09" + "  七个值");
+                    next = true;
+                    return;
+                } else if (!talk && next) {
+                    String date = "AA 55 00 04 00 F1 02 02 08";
+                    sendHexString(date.replaceAll("\\s*", ""), "232");
+                    Log.e("PTT_OFF", "AA 55 00 04 00 F1 02 02 08" + "  七个值");
+                    next = false;
+                    return;
+                }
+            }
+            actived = false;
             refreshLcdChannel();
         }
 
@@ -551,6 +864,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         public void onApplyOrderResult(int uid, int cid, String phone, boolean success) throws RemoteException {
 
         }
+
         @Override
         public void onUserOrderCall(final User user, boolean talk, String number) {
         }
@@ -693,15 +1007,10 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
                 case MIC_GIVINGBACK:
                     break;
                 case MIC_APPLYING:
-                    if(1==1){
 
                     //注意：申请期间，按键是按下状态，模仿真实按钮
                     mIVPtt.setImageResource(R.drawable.ic_ptt_down);
                     mIVPttCirc.setImageResource(R.drawable.ic_ptt_circle_applying);
-                    }else{
-                        mIVPtt.setImageResource(R.drawable.ic_ptt_up);
-                        mIVPttCirc.setImageResource(R.drawable.ic_ptt_circle_noready);
-                    }
                     break;
                 case MIC_OPENING_SCO:
                     mIVPtt.setImageResource(R.drawable.ic_ptt_down);
@@ -774,6 +1083,8 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
 
         //刷新talkinguser
         if (talker != null) {
+            //open = true;
+
             Channel tc = talker.getChannel();
             Channel cc = mService.getCurrentChannel();
             if (tc != null && cc != null && tc.id == cc.id) {

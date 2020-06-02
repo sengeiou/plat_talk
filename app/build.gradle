@@ -58,16 +58,14 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.squareup.okhttp3:okhttp:3.2.0'
-    implementation "com.android.support:recyclerview-v7:27.1.1"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.support:multidex:1.0.1'
     implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
-
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
-
     // HUAWEI push sdk
     implementation 'com.huawei.android.hms:push:2.6.3.301'
     implementation 'com.huawei.android.hms:base:2.6.3.301'
@@ -78,16 +76,14 @@ dependencies {
         exclude group: 'androidx.core', module: 'core'
     }
     // google 云消息传递
-    implementation ('com.google.firebase:firebase-messaging:19.0.1'){
+    implementation('com.google.firebase:firebase-messaging:19.0.1') {
         exclude group: 'androidx.core', module: 'core'
     }
-
     // bugly sdk
     implementation 'com.tencent.bugly:crashreport:latest.release'
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     implementation 'org.bouncycastle:bcpkix-jdk15on:1.59'
-
-implementation 'com.tencent.imsdk:tuikit:4.6.51'
+    implementation 'com.tencent.imsdk:tuikit:4.6.51'
     implementation project(path: ':talk')
-// implementation project(':tuikit')
+    implementation project(path: ':SerialportLibrary')
 }

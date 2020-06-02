@@ -978,6 +978,7 @@ id checkbox
 id chronometer
 id civ_contact_avatar
 id civ_searched_user_avatar
+id confirm
 id contentPanel
 id content_lv
 id country_catalog
@@ -1044,6 +1045,7 @@ id icon_group
 id id_receiver_recorder_anim
 id id_recorder_anim
 id image
+id img
 id info
 id invisible
 id italic
@@ -1234,6 +1236,7 @@ id rg_manage_member
 id right
 id right_icon
 id right_side
+id rv
 id sb_history_hours
 id sb_volume_i_begin
 id sb_volume_i_end
@@ -1338,6 +1341,7 @@ id tv_member_id
 id tv_member_nick
 id tv_my_id
 id tv_my_nick
+id tv_name
 id tv_now_talking
 id tv_order_time
 id tv_other_setting
@@ -1441,9 +1445,11 @@ layout contact_detail
 layout coogame_country
 layout coogame_country_item
 layout create_channel
+layout dialog_add
 layout dialogfragment_deleteinfo
 layout dialogfragment_userinfo
 layout float_window
+layout item_member
 layout join_channel
 layout layout
 layout list_item_voicefrom

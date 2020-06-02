@@ -145,7 +145,10 @@ public class MemberChannel extends Activity implements OnClickListener {
 		super.onDestroy();
 	}
 
-	////////////////////////////////
+
+
+
+	////////////////////////////////wocao add member
 	private BaseServiceObserver serviceObserver = new BaseServiceObserver() {
 		@Override
 		public void onMembersGot(int cid, String members) throws RemoteException {
@@ -277,7 +280,7 @@ public class MemberChannel extends Activity implements OnClickListener {
 		TextView tvNick;
 	}
 
-	public class MyMember {
+	public static class MyMember {
 		String uid;
 		String nick;
 

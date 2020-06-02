@@ -3,17 +3,24 @@ package com.kylindev.totalk.app;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Application;
+import android.app.Dialog;
 import android.bluetooth.BluetoothDevice;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -37,6 +44,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kylindev.pttlib.LibConstants;
 import com.kylindev.pttlib.service.BaseServiceObserver;
@@ -49,7 +57,10 @@ import com.kylindev.pttlib.service.model.Contact;
 import com.kylindev.pttlib.service.model.PendingMember;
 import com.kylindev.pttlib.service.model.User;
 import com.kylindev.totalk.AppConstants;
+import com.kylindev.totalk.MainApp;
 import com.kylindev.totalk.R;
+import com.kylindev.totalk.net.Member;
+import com.kylindev.totalk.net.Test;
 import com.kylindev.totalk.utils.AppCommonUtil;
 import com.kylindev.totalk.utils.AppSettings;
 import com.kylindev.totalk.view.ActionItem;
@@ -86,6 +97,7 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
     private ChannelListAdapter channelAdapter;
 
     private LinearLayout mLLTips;
+
 
     @Override
     protected void serviceConnected() {
@@ -133,44 +145,25 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
 
         //wocao add channel
         mIVBarRightInner.setImageResource(R.drawable.add);
-        mIVBarRightInner.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //add pindao
-            }
-        });
+
 
         mIVBarRightInner.setImageResource(R.drawable.ic_add);
         mIVBarRightInner.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 final TitlePopup addPopup = new TitlePopup(ChannelActivity.this, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                addPopup.addAction(new ActionItem(ChannelActivity.this, getString(R.string.join_channel), R.drawable.join_channel));
-                addPopup.addAction(new ActionItem(ChannelActivity.this, getString(R.string.search_channel), R.drawable.ic_search));
                 addPopup.addAction(new ActionItem(ChannelActivity.this, getString(R.string.create_channel), R.drawable.create_channel));
 
                 addPopup.setItemOnClickListener(new TitlePopup.OnItemOnClickListener() {
                     @Override
                     public void onItemClick(ActionItem item, int position) {
-                        switch (position) {
-                            case 0:
-                                joinChannel();
-                                break;
-                            case 1:
-                                searchChannel();
-                                break;
-                            case 2:
-                                createChannel();
-                                break;
-                            default:
-                                break;
-                        }
+                        createChannel();
                     }
                 });
                 addPopup.show(v);
             }
         });
-        mIVBarRightInner.setVisibility(View.INVISIBLE);
+//        mIVBarRightInner.setVisibility(View.INVISIBLE);
         mIVBarRight.setImageResource(R.drawable.ic_menu_white);
         mIVBarRight.setOnClickListener(new OnClickListener() {
             @Override
@@ -232,6 +225,8 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
         getPermissions();
     }
 
+
+
     @Override
     public void onResume() {
         if (mService != null) {
@@ -245,6 +240,7 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
     protected void onDestroy() {
         if (mService != null) {
             mService.unregisterObserver(serviceObserver);
+
         }
 
         super.onDestroy();
@@ -653,6 +649,8 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
         builder.show();
     }
 
+
+
     public void joinChannel() {
         if (mService.getConnectionState() == CONNECTION_STATE_DISCONNECTED) {
             return;
@@ -700,10 +698,10 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
         mJoinChannelDialog = builder.show();
     }
 
-    private void searchChannel() {
-        Intent i = new Intent(ChannelActivity.this, SearchChannel.class);
-        startActivity(i);
-    }
+
+
+
+
 
     private void accountDlg() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -2327,8 +2325,34 @@ public class ChannelActivity extends BaseActivity implements OnClickListener,Int
             add.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //wocao
                     //new dialog get number message;
                     //add post
+                    View dv=  getLayoutInflater().inflate(R.layout.dialog_add,null,false);
+                    Dialog dialog=new Dialog(getContext());
+                    dialog.setTitle("选人");
+                    dialog.setContentView(dv);
+                    WindowManager.LayoutParams attrs = dialog.getWindow().getAttributes();
+                    //attrs.setTitle("Title");
+                    attrs.width = 580;// attrs.width =580;
+                    attrs.height = 800;// attrs.height = 800;
+                    dialog.getWindow().setAttributes(attrs);
+                    dialog.show();
+
+
+                    RecyclerView rv=dv.findViewById(R.id.rv);
+                    final String cid=String.valueOf(Test.getChannelId(MainApp.getUserName()));
+                    final ArrayList<Member>  members=Test.getMembers(cid);
+                    final MemberAdapter adapter=new MemberAdapter(getContext(),members);
+                    rv.setAdapter(adapter);
+                    rv.setLayoutManager(new LinearLayoutManager(getContext()));
+                    Button bt=dv.findViewById(R.id.confirm);
+                    bt.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Test.addMembers(cid,adapter.getS_members());
+                        }
+                    });
                 }
             });
 

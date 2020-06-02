@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.kylindev.totalk.MainApp;
 import com.kylindev.totalk.app.LoginActivity;
 import com.tencent.qcloud.tim.demo.R;
 import com.tencent.qcloud.tim.demo.main.MainActivity;
@@ -110,9 +111,10 @@ public class LoginForDevActivity extends Activity {
                         SharedPreferences.Editor editor = shareInfo.edit();
                         editor.putBoolean(Constants.AUTO_LOGIN, true);
                         editor.commit();
-                        //分三级  调度员d  领导l  普通用户c
+                        //分三级  调度员d  领导l  普通用户cLoginForDevActivity.this, LoginActivity.class
                         Intent intent = new Intent(LoginForDevActivity.this, LoginActivity.class);
-                        account=mUserAccount.getText().toString().substring(1);
+//                        MainApp.setLevel(mUserAccount.getText().toString().substring(0,1));
+                        account=mUserAccount.getText().toString();
                         intent.putExtra("account",account);
                         startActivity(intent);
                         finish();
@@ -121,6 +123,7 @@ public class LoginForDevActivity extends Activity {
             }
         });
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

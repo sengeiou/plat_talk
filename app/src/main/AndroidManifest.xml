@@ -64,6 +64,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:name,android:icon">
+
+        <receiver android:name="com.tencent.qcloud.tim.demo.bjxt.BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.tencent.qcloud.tim.demo.SplashActivity"
             android:screenOrientation="portrait"

@@ -11,7 +11,8 @@ import com.baidu.mapapi.SDKInitializer;
 
 public class MainApp extends android.app.Application {
 	private static MainApp instance;
-	
+	static String userName;
+	static String level;
 	public MainApp() { 
 		instance = this;
 	}
@@ -24,6 +25,22 @@ public class MainApp extends android.app.Application {
 		return null;
 	}
 
+	public static String getUserName() {
+		return userName;
+	}
+
+	public static void setUserName(String auserName) {
+		userName = auserName;
+	}
+
+
+	public static String getLevel() {
+		return level;
+	}
+
+	public static void setLevel(String level) {
+		MainApp.level = level;
+	}
 
 	@Override
 	public void onCreate() {

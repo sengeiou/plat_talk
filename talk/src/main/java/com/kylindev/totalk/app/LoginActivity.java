@@ -32,6 +32,7 @@ import com.kylindev.pttlib.service.InterpttService.ConnState;
 import com.kylindev.pttlib.service.InterpttService.LocalBinder;
 import com.kylindev.pttlib.utils.ServerProto.Reject.RejectType;
 import com.kylindev.totalk.AppConstants;
+import com.kylindev.totalk.MainApp;
 import com.kylindev.totalk.R;
 import com.kylindev.totalk.utils.AppCommonUtil;
 import com.kylindev.totalk.utils.AppSettings;
@@ -89,19 +90,20 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 			}
 		};
 	}
-
+	String userName;
 
 	@Override
 	protected final void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		setContentView(R.layout.activity_login);
 		//之前在验证手机号时，按home，查看短信，再点击icon启动时，会重新显示本界面
 		//加这个判断后，会直接显示按home时所在的界面
-		if (!isTaskRoot()) {
+        //车台去调此判断（4.4版本）
+		/*if (!isTaskRoot()) {
 			finish();
 			return;
-		}
-		setContentView(R.layout.activity_login);
+		}*/
+
 
 		//检查新版本
 		AppCommonUtil.checkUpdate(false);
@@ -164,6 +166,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 		}
 		mETHost.setText("140.143.236.23");
 		mETHost.setVisibility(View.GONE);
+		userName=getIntent().getStringExtra("account");
 		login2(getIntent().getStringExtra("account"),"123456");
 	}
 
@@ -491,6 +494,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Vie
 	};
 
 	private void jumpToChannel() {
+		MainApp.setUserName(userName);
 		Intent i = new Intent(LoginActivity.this, ChannelActivity.class);
 		startActivity(i);
 		autoFinish = true;

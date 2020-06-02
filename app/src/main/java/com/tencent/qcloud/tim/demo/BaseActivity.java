@@ -1,12 +1,14 @@
 package com.tencent.qcloud.tim.demo;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -64,6 +66,10 @@ public class BaseActivity extends Activity {
         }
 
         TUIKit.addIMEventListener(mIMEventListener);
+
+        DemoApplication application = (DemoApplication) getApplication();
+        String mCommand = application.mCommand;
+        Log.e("停车",mCommand+"  123");
     }
 
     @Override

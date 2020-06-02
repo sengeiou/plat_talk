@@ -67,8 +67,11 @@
 
         </LinearLayout>
 
-
-
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/title_height"
+            android:layout_height="@dimen/title_height"
+            android:padding="6dp"/>
         <ImageView
             android:id="@+id/iv_bar_right_innner"
             android:layout_width="@dimen/title_height"

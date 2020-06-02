@@ -310,7 +310,7 @@ public class SearchChannel extends Activity implements ListView.OnItemClickListe
 		ImageView ivLock;
 	}
 
-	public class MyChan {
+	public static class MyChan {
 		int chanId;
 		String chanName;
 		boolean joined;

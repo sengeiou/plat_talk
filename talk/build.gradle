@@ -6,7 +6,7 @@ android {
     defaultConfig { 
 //        applicationId "com.kylindev.totalk"
         /*if the versions change to 18/18, then bluetooth headset can't end sco connection*/
-        minSdkVersion 16
+        minSdkVersion 14
         /*???????????targetSdkVersion??23?MINU?Android6.0????????APP????????targetSdkVersion??22??? */
         targetSdkVersion 28
         versionCode 94
@@ -69,4 +69,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation files('libs/BaiduLBS_Android.jar')
+    implementation 'com.squareup.okhttp3:okhttp:4.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation project(path: ':SerialportLibrary')
+    //implementation project(path: ':app', configuration:'default')
 }

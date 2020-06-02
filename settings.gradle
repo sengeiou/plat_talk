@@ -1,1 +1,1 @@
-include ':app', ':tuikit', ':talk', ':pttlib'
+include ':app', ':tuikit', ':talk', ':pttlib', ':SerialportLibrary'
