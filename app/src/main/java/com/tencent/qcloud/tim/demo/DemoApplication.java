@@ -7,16 +7,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.huawei.android.hms.agent.HMSAgent;
 import com.kylindev.totalk.app.BaseActivity;
+import com.kylindev.totalk.bjxt.SePortActivity;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
+import com.qgsstrive.mylibrary.RouterURLS;
+import com.qgsstrive.mylibrary.TestService;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.imsdk.TIMBackgroundParam;
@@ -53,27 +59,35 @@ import java.util.regex.Pattern;
 import android_serialport_api.SerialPortUtil;
 import util.MyUtil;
 
-public class DemoApplication extends SerialPortApplication {
+@Route(path = RouterURLS.BASE_MAIN)
+public class DemoApplication extends MultiDexApplication implements TestService {
 
     private static final String TAG = DemoApplication.class.getSimpleName();
 
     private static DemoApplication instance;
     public static String mCommand;
-    String setup = "AA 55 00 16 00 F3 12 34 56 78 A0 08 12 34 56 FF FF FF FF FF FF FF FF FF FF FF";
+    String setup = "AA 55 00 16 00 F3 12 34 56 78 A0 08 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
 
     public static DemoApplication instance() {
         return instance;
     }
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
+
     @Override
     public void onCreate() {
         DemoLog.i(TAG, "onCreate");
         super.onCreate();
         instance = this;
+
+        ARouter.openLog();
+        ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        ARouter.init(this);
+
         // bugly上报
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
         strategy.setAppVersion(TIMManager.getInstance().getVersion());
@@ -141,30 +155,163 @@ public class DemoApplication extends SerialPortApplication {
                 Log.e("wocao", textElem.getText());
 
                 mCommand = textElem.getText();
-                int length = mCommand.length();
-                Log.i("length",length+"  123");
-                if (mCommand.length()>12) {
-                    String setUp = setup.replaceAll(" ", "");
+
+                if (mCommand.equals("机车")) {
+                    //确认
+                    String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 09 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
+                    Log.e("机车", mDat + "  机车");
+                    String data = mDat.replaceAll(" ", "");
                     int total = 0;
-                    for (int i = 0;i<setUp.length();i+=2){
+                    for (int i = 0; i < data.length(); i += 2) {
                         //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
-                        total = total + Integer.parseInt(setUp.substring(i,i+2),16);
+                        total = total + Integer.parseInt(data.substring(i, i + 2), 16);
                     }
                     //noTotal为累加和取反加一
                     int noTotal = ~total + 1;
-                    Log.i("total",String.valueOf(noTotal));
+                    Log.i("total", String.valueOf(noTotal));
                     //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
                     //0xFF会像转换成0x000000FF后再进行位运算
                     String hex = Integer.toHexString(noTotal).toUpperCase();
-                    Log.i("TAGhex",hex);
-                    String key = hex.substring(hex.length()-2);
-                    Log.i("TAG校验码key",key);
-                    Log.i("TAGhex",key);
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
+                    //将求得的最后两位拼接到setup字符串后面
+                    String s = data + key;
+                    Log.e("setUp", data + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
+                    //SePortActivity.sendHexString(mDat.replaceAll("\\s*", ""), "232");
+                }
+                if (mCommand.equals("车站")) {
+                    String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 0A 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
+                    Log.e("车站", mDat + "  车站");
+                    String data = mDat.replaceAll(" ", "");
+                    int total = 0;
+                    for (int i = 0; i < data.length(); i += 2) {
+                        //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                        total = total + Integer.parseInt(data.substring(i, i + 2), 16);
+                    }
+                    //noTotal为累加和取反加一
+                    int noTotal = ~total + 1;
+                    Log.i("total", String.valueOf(noTotal));
+                    //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                    //0xFF会像转换成0x000000FF后再进行位运算
+                    String hex = Integer.toHexString(noTotal).toUpperCase();
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
+                    //将求得的最后两位拼接到setup字符串后面
+                    String s = data + key;
+                    Log.e("setUp", data + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
+                }
+                if (mCommand.equals("确认")) {
+                    //String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 09 12 34 56 FF FF FF FF FF FF FF FF FF FF FF AA";
+                    String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 03 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
+                    Log.e("确认", mDat + "  确认");
+                    String data = mDat.replaceAll(" ", "");
+                    int total = 0;
+                    for (int i = 0; i < data.length(); i += 2) {
+                        //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                        total = total + Integer.parseInt(data.substring(i, i + 2), 16);
+                    }
+                    //noTotal为累加和取反加一
+                    int noTotal = ~total + 1;
+                    Log.i("total", String.valueOf(noTotal));
+                    //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                    //0xFF会像转换成0x000000FF后再进行位运算
+                    String hex = Integer.toHexString(noTotal).toUpperCase();
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
+                    //将求得的最后两位拼接到setup字符串后面
+                    String s = data + key;
+                    Log.e("setUp", data + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
+                    //SePortActivity.sendHexString(mDat.replaceAll("\\s*", ""), "232");
+                }
+                if (mCommand.equals("查询")) {
+                    //String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 0A 12 34 56 FF FF FF FF FF FF FF FF FF FF FF A9";
+                    String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 01 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
+                    Log.e("查询", mDat + "  查询");
+                    String data = mDat.replaceAll(" ", "");
+                    int total = 0;
+                    for (int i = 0; i < data.length(); i += 2) {
+                        //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                        total = total + Integer.parseInt(data.substring(i, i + 2), 16);
+                    }
+                    //noTotal为累加和取反加一
+                    int noTotal = ~total + 1;
+                    Log.i("total", String.valueOf(noTotal));
+                    //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                    //0xFF会像转换成0x000000FF后再进行位运算
+                    String hex = Integer.toHexString(noTotal).toUpperCase();
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
+                    //将求得的最后两位拼接到setup字符串后面
+                    String s = data + key;
+                    Log.e("setUp", data + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
+                }
+                if (mCommand.equals("消号")) {
+                    //String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 0A 12 34 56 FF FF FF FF FF FF FF FF FF FF FF A9";
+                    String mDat = "AA 55 00 16 00 F3 12 34 56 78 A0 02 38 60 00 FF FF FF FF FF FF FF FF FF FF FF";
+                    Log.e("消号", mDat + "  消号");
+                    String data = mDat.replaceAll(" ", "");
+                    int total = 0;
+                    for (int i = 0; i < data.length(); i += 2) {
+                        //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                        total = total + Integer.parseInt(data.substring(i, i + 2), 16);
+                    }
+                    //noTotal为累加和取反加一
+                    int noTotal = ~total + 1;
+                    Log.i("total", String.valueOf(noTotal));
+                    //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                    //0xFF会像转换成0x000000FF后再进行位运算
+                    String hex = Integer.toHexString(noTotal).toUpperCase();
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
+                    //将求得的最后两位拼接到setup字符串后面
+                    String s = data + key;
+                    Log.e("setUp", data + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
+                }
+
+                int length = mCommand.length();
+                Log.i("length", length + "  123");
+                if (mCommand.length() > 12) {
+                    String setUp = setup.replaceAll(" ", "");
+                    int total = 0;
+                    for (int i = 0; i < setUp.length(); i += 2) {
+                        //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                        total = total + Integer.parseInt(setUp.substring(i, i + 2), 16);
+                    }
+                    //noTotal为累加和取反加一
+                    int noTotal = ~total + 1;
+                    Log.i("total", String.valueOf(noTotal));
+                    //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                    //0xFF会像转换成0x000000FF后再进行位运算
+                    String hex = Integer.toHexString(noTotal).toUpperCase();
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
                     //将求得的最后两位拼接到setup字符串后面
                     String s = setUp + key;
-                    Log.e("setUp",setUp+"    00");
-                    Log.e("s",s+"    00");
-                    sendHexString(s.replaceAll("\\s*", ""), "232");
+                    Log.e("setUp", setUp + "    00");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
                 }
 
                 //SerialPortUtil.open("/dev/ttyS3",19200,0);
@@ -173,24 +320,24 @@ public class DemoApplication extends SerialPortApplication {
                 if (mCommand.equals("停车")) {
                     String setUp = setup.replaceAll(" ", "");
                     int total = 0;
-                    for (int i = 0;i<setUp.length();i+=2){
+                    for (int i = 0; i < setUp.length(); i += 2) {
                         //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
-                        total = total + Integer.parseInt(setUp.substring(i,i+2),16);
+                        total = total + Integer.parseInt(setUp.substring(i, i + 2), 16);
                     }
                     //noTotal为累加和取反加一
                     int noTotal = ~total + 1;
-                    Log.i("total",String.valueOf(noTotal));
+                    Log.i("total", String.valueOf(noTotal));
                     //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
                     //0xFF会像转换成0x000000FF后再进行位运算
                     String hex = Integer.toHexString(noTotal).toUpperCase();
-                    Log.i("TAGhex",hex);
-                    String key = hex.substring(hex.length()-2);
-                    Log.i("TAG校验码key",key);
-                    Log.i("TAGhex",key);
+                    Log.i("TAGhex", hex);
+                    String key = hex.substring(hex.length() - 2);
+                    Log.i("TAG校验码key", key);
+                    Log.i("TAGhex", key);
                     //将求得的最后两位拼接到setup字符串后面
                     String s = setUp + hex;
-                    Log.e("s",s+"    00");
-                    sendHexString(s.replaceAll("\\s*", ""), "232");
+                    Log.e("s", s + "    00");
+                    SePortActivity.sendHexString(s.replaceAll("\\s*", ""), "232");
                     //ack(msgs.get(0).getSender(), mCommand);
                 }
                 if (mCommand.equals("推进")) {
@@ -218,75 +365,80 @@ public class DemoApplication extends SerialPortApplication {
     String answer = "AA 55 00 16 00 F4 12 34 56 78 A0 88 12 34 56 FF FF FF FF FF FF FF FF FF FF FF";
     String request = "AA 55 00 16 00 F4 12 34 56 78 A0 0D 12 34 56 FF FF FF FF FF FF FF FF FF FF FF";
 
-    @Override
+    /*@Override
     protected void onDataReceived(byte[] buffer, int size, int type) {
-        Log.e("qq","qq");
-        String encodeHexStr = util.HexUtil.encodeHexStr(buffer, false, size);
-        //截取接收的十六进制后两位
-        String substring = encodeHexStr.substring(encodeHexStr.length() - 2, encodeHexStr.length());
+        try {
+            Log.e("qq", "qq");
+            String encodeHexStr = util.HexUtil.encodeHexStr(buffer, false, size);
+            //截取接收的十六进制后两位
+            String substring = encodeHexStr.substring(encodeHexStr.length() - 2, encodeHexStr.length());
 
-        //判断接收的数据是否含有数字或者特殊字符
-        boolean specialChar = isSpecialChar(encodeHexStr);
-        boolean messyCode = isMessyCode(encodeHexStr);
-        if (specialChar && messyCode) {
-            //Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
-            Log.e("包含", "包含");
-        } else if (!specialChar && !messyCode) {
-            String signallingACK1 = signallingACK.replaceAll(" ", "");
-            String answer1 = answer.replaceAll(" ", "");
-            String request1 = request.replaceAll(" ", "");
-            int total = 0;
-            for (int i = 0;i<answer1.length();i+=2){
-                //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
-                //计算16进制累加和
-                total = total + Integer.parseInt(answer1.substring(i,i+2),16);
+            //判断接收的数据是否含有数字或者特殊字符
+            boolean specialChar = isSpecialChar(encodeHexStr);
+            boolean messyCode = isMessyCode(encodeHexStr);
+            if (specialChar && messyCode) {
+                //Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
+                Log.e("包含", "包含");
+            } else if (!specialChar && !messyCode) {
+                String signallingACK1 = signallingACK.replaceAll(" ", "");
+                String answer1 = answer.replaceAll(" ", "");
+                String request1 = request.replaceAll(" ", "");
+                int total = 0;
+                for (int i = 0; i < answer1.length(); i += 2) {
+                    //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                    //计算16进制累加和
+                    total = total + Integer.parseInt(answer1.substring(i, i + 2), 16);
+                }
+                //noTotal为累加和取反加一
+                int noTotal = ~total + 1;
+                Log.i("total", total + " ");
+                Log.i("total", String.valueOf(noTotal));
+                //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                //0xFF会像转换成0x000000FF后再进行位运算
+                String hex = Integer.toHexString(noTotal).toUpperCase();
+                Log.i("TAGhex", hex);
+                String key = hex.substring(hex.length() - 2);
+                Log.i("TAG校验码key", key);
+                Log.i("TAGhex", key);
+
+                int sum = 0;
+                for (int i = 0; i < request1.length(); i += 2) {
+                    //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                    sum = sum + Integer.parseInt(request1.substring(i, i + 2), 16);
+                }
+                //nototal为累加和取反加一
+                int nototal = ~sum + 1;
+                Log.i("total", sum + " ");
+                Log.i("total", String.valueOf(nototal));
+                //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+                //0xFF会像转换成0x000000FF后再进行位运算
+                String hex1 = Integer.toHexString(nototal).toUpperCase();
+                Log.i("TAGhex", hex1);
+                String key1 = hex.substring(hex1.length() - 2);
+                Log.i("TAG校验码key", key1);
+                Log.i("TAGhex", key1);
+
+                if (encodeHexStr.equals(signallingACK1)) {
+                    Log.e("车台回的ack", "车台回的ack");
+                } else if (substring.equals(key)) {
+                    Log.e("列尾ID设置应答(输号应答)", "列尾ID设置应答(输号应答)");
+                    String mDat = "AA 55 00 04 80 F4 88 00 01";
+                    //sendHexString(mDat.replaceAll("\\s*", ""), "232");
+                    sendMessage("1001025", "ok");
+                } else if (substring.equals(key1)) {
+                    Log.e("列尾主机输号请求", "列尾主机输号请求");
+                    String mDat = "AA 55 00 04 80 F4 0D 00 01 7B";
+                    //sendHexString(mDat.replaceAll("\\s*", ""), "232");
+                    sendMessage("1001026", "ok");
+                }
+
+                BaseActivity.onReceived(buffer, size, type);
             }
-            //noTotal为累加和取反加一
-            int noTotal = ~total + 1;
-            Log.i("total",total+" ");
-            Log.i("total",String.valueOf(noTotal));
-            //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
-            //0xFF会像转换成0x000000FF后再进行位运算
-            String hex = Integer.toHexString(noTotal).toUpperCase();
-            Log.i("TAGhex",hex);
-            String key = hex.substring(hex.length()-2);
-            Log.i("TAG校验码key",key);
-            Log.i("TAGhex",key);
+        } catch (Exception e) {
 
-            int sum = 0;
-            for (int i = 0;i<request1.length();i+=2){
-                //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
-                sum = sum + Integer.parseInt(request1.substring(i,i+2),16);
-            }
-            //nototal为累加和取反加一
-            int nototal = ~sum + 1;
-            Log.i("total",sum+" ");
-            Log.i("total",String.valueOf(nototal));
-            //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
-            //0xFF会像转换成0x000000FF后再进行位运算
-            String hex1 = Integer.toHexString(nototal).toUpperCase();
-            Log.i("TAGhex",hex1);
-            String key1 = hex.substring(hex1.length()-2);
-            Log.i("TAG校验码key",key1);
-            Log.i("TAGhex",key1);
-
-            if (encodeHexStr.equals(signallingACK1)) {
-                Log.e("车台回的ack", "车台回的ack");
-            } else if (substring.equals(key)) {
-                Log.e("列尾ID设置应答(输号应答)", "列尾ID设置应答(输号应答)");
-                String mDat = "AA 55 00 04 80 F4 88 00 01";
-                //sendHexString(mDat.replaceAll("\\s*", ""), "232");
-                sendMessage("1001025","ok");
-            } else if (substring.equals(key1)) {
-                Log.e("列尾主机输号请求", "列尾主机输号请求");
-                String mDat = "AA 55 00 04 80 F4 0D 00 01 7B";
-                //sendHexString(mDat.replaceAll("\\s*", ""), "232");
-                sendMessage("1001026","ok");
-            }
-
-            BaseActivity.onReceived(buffer, size, type);
         }
-    }
+    }*/
+
 
     byte formData[] = new byte[1024];
     int len232 = 0;//接收到的数据长度
@@ -341,6 +493,37 @@ public class DemoApplication extends SerialPortApplication {
         return Integer.parseInt(new BigInteger((HexUtil.encodeHexStr(bytes, size).replace(
                 " ", ""
         )), 16).toString(10));
+    }
+
+    @Override
+    public void sendMsg(String uid, String s) {
+        TIMConversation conversation = TIMManager.getInstance().getConversation(
+                TIMConversationType.C2C,    //会话类型：单聊
+                uid);                      //会话对方用户帐号//对方ID
+
+        TIMMessage msg = new TIMMessage();
+        //添加文本内容
+        TIMTextElem elem = new TIMTextElem();
+        elem.setText("ok");
+        msg.addElement(elem);
+        conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+            @Override
+            public void onError(int code, String desc) {//发送消息失败
+                //错误码 code 和错误描述 desc，可用于定位请求失败原因
+                //错误码 code 含义请参见错误码表
+                Log.d("wocao", "send message failed. code: " + code + " errmsg: " + desc);
+            }
+
+            @Override
+            public void onSuccess(TIMMessage msg) {//发送消息成功
+                Log.e("wocao", "SendMsg ok");
+            }
+        });
+    }
+
+    @Override
+    public void init(Context context) {
+
     }
 
     class StatisticActivityLifecycleCallback implements ActivityLifecycleCallbacks {

@@ -15,6 +15,12 @@ android {
        // manifestPlaceholders = [screenType:"landscape"]
         //竖屏版APP
         manifestPlaceholders = [screenType:"portrait"]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName : project.getName()]
+            }
+        }
     }
 //    buildTypes {
 //        release {
@@ -72,5 +78,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.0.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation project(path: ':SerialportLibrary')
+    implementation project(path: ':mylibrary')
     //implementation project(path: ':app', configuration:'default')
+    implementation 'com.alibaba:arouter-api:1.3.1'
+    //注解器
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }

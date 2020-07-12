@@ -37,14 +37,12 @@ public class SerialPortUtil {
      * 打开串口
      */
     public static boolean open(String pathname, int baudrate, int flags) {
-        Log.e("aaa",pathname+"    123");
         boolean isopen = false;
         if (isFlagSerial) {
             return false;
         }
         try {
             serialPort = new SerialPort(new File(pathname), baudrate, flags);
-            Log.e("7770",pathname+"    123");
             inputStream = serialPort.getInputStream();
             outputStream = serialPort.getOutputStream();
             receive();

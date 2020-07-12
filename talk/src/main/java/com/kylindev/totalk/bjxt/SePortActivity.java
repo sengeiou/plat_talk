@@ -31,7 +31,7 @@ public abstract class SePortActivity extends Activity {
     }*/
 
     protected SerialPort mSerialPort,mSerialPort2;
-    protected OutputStream mOutputStream,mOutputStream2;
+    protected static OutputStream mOutputStream,mOutputStream2;
     private InputStream mInputStream,mInputStream2;
     private ReadThread mReadThread;
     private ReadThread2 mReadThread2;
@@ -57,7 +57,7 @@ public abstract class SePortActivity extends Activity {
     /**
      * 发送串口指令
      */
-    public void sendHexString(String data,String serialCode) {
+    public static void sendHexString(String data,String serialCode) {
         //发送
 
         try {

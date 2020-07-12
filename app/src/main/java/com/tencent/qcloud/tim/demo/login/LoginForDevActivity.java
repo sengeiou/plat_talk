@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -45,7 +46,7 @@ public class LoginForDevActivity extends Activity {
     private static final int REQ_PERMISSION_CODE = 0x100;
     private Button mLoginView;
     private EditText mUserAccount;
-    private String account,passwd;
+    private String account, passwd;
 
     //权限检查
     public static boolean checkPermission(Activity activity) {
@@ -87,6 +88,10 @@ public class LoginForDevActivity extends Activity {
         // 用户名可以是任意非空字符，但是前提需要按照下面文档修改代码里的 SDKAPPID 与 PRIVATEKEY
         // https://github.com/tencentyun/TIMSDK/tree/master/Android
         mUserAccount = findViewById(R.id.login_user);
+        mUserAccount.setText("1001025");
+        if (mUserAccount != null) {
+            auto();
+        }
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         checkPermission(this);
         mLoginView.setOnClickListener(new View.OnClickListener() {
@@ -114,8 +119,8 @@ public class LoginForDevActivity extends Activity {
                         //分三级  调度员d  领导l  普通用户cLoginForDevActivity.this, LoginActivity.class
                         Intent intent = new Intent(LoginForDevActivity.this, LoginActivity.class);
 //                        MainApp.setLevel(mUserAccount.getText().toString().substring(0,1));
-                        account=mUserAccount.getText().toString();
-                        intent.putExtra("account",account);
+                        account = mUserAccount.getText().toString();
+                        intent.putExtra("account", account);
                         startActivity(intent);
                         finish();
                     }
@@ -149,4 +154,36 @@ public class LoginForDevActivity extends Activity {
         }
     }
 
+    //自动登录
+    public void auto() {
+        // 获取userSig函数
+        String userSig = GenerateTestUserSig.genTestUserSig("1001025");
+        TUIKit.login("1001025", userSig, new IUIKitCallBack() {
+            @Override
+            public void onError(String module, final int code, final String desc) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        ToastUtil.toastLongMessage("登录失败, errCode = " + code + ", errInfo = " + desc);
+                        Log.e("登录失败","登录失败, errCode = " + code + ", errInfo = " + desc);
+                    }
+                });
+                DemoLog.i(TAG, "imLogin errorCode = " + code + ", errorInfo = " + desc);
+            }
+
+            @Override
+            public void onSuccess(Object data) {
+                SharedPreferences shareInfo = getSharedPreferences(Constants.USERINFO, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = shareInfo.edit();
+                editor.putBoolean(Constants.AUTO_LOGIN, true);
+                editor.commit();
+                //分三级  调度员d  领导l  普通用户cLoginForDevActivity.this, LoginActivity.class
+                Intent intent = new Intent(LoginForDevActivity.this, LoginActivity.class);
+//                        MainApp.setLevel(mUserAccount.getText().toString().substring(0,1));
+                account = mUserAccount.getText().toString();
+                intent.putExtra("account", account);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
 }

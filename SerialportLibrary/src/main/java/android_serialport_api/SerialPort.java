@@ -26,7 +26,6 @@ public class SerialPort {
                 Process su = Runtime.getRuntime().exec("/system/bin/su");
                 String cmd = "chmod 777 " + device.getAbsolutePath() + "\n" + "exit\n";
                 su.getOutputStream().write(cmd.getBytes());
-                Log.e("7770",device.getAbsolutePath()+"    123");
                 if ((su.waitFor() != 0) || !device.canRead() || !device.canWrite()) {
                     throw new SecurityException();
                 }
@@ -37,7 +36,6 @@ public class SerialPort {
         }
 
         mFd = open(device.getAbsolutePath(), baudrate, flags);
-        Log.e("bbb",device.getAbsolutePath()+"    123");
         if (mFd == null) {
             Log.e(TAG, "native open returns null");
             throw new IOException();

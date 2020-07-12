@@ -28,6 +28,12 @@ android {
 //            abiFilters = []
 //            abiFilters.addAll(rootProject.ext.abiFilters)
         }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName : project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -86,4 +92,8 @@ dependencies {
     implementation 'com.tencent.imsdk:tuikit:4.6.51'
     implementation project(path: ':talk')
     implementation project(path: ':SerialportLibrary')
+    implementation project(path: ':mylibrary')
+    implementation 'com.alibaba:arouter-api:1.3.1'
+    //注解器
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }

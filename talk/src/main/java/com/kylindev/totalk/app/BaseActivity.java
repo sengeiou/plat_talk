@@ -32,6 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.kylindev.pttlib.LibConstants;
 import com.kylindev.pttlib.service.BaseServiceObserver;
 import com.kylindev.pttlib.service.InterpttProtocolHandler.DisconnectReason;
@@ -49,6 +51,8 @@ import com.kylindev.totalk.bjxt.SePortActivity;
 import com.kylindev.totalk.chat.RecyclerViewChatActivity;
 import com.kylindev.totalk.utils.AppCommonUtil;
 import com.kylindev.totalk.utils.AppSettings;
+import com.qgsstrive.mylibrary.RouterURLS;
+import com.qgsstrive.mylibrary.TestService;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -69,6 +73,16 @@ import static com.kylindev.pttlib.service.InterpttService.ConnState.CONNECTION_S
 
 public abstract class BaseActivity extends SePortActivity implements OnClickListener {
 
+    @Autowired(name = RouterURLS.BASE_MAIN)
+    TestService app;
+
+    void sendMsg(String uid,String s){
+        ARouter.getInstance().inject(this);
+        if(app!=null){
+            app.sendMsg(uid,s);
+        }
+    }
+
     byte formData[] = new byte[1024];
     int len232 = 0;//接收到的数据长度
     int len = 0;//数据总长度
@@ -83,116 +97,80 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
     String A4 = "02";
     String ackStart = "AA 55 00 05 80 F1 02 01 00 88";
     String ackStop = "AA 55 00 05 80 F1 02 02 00 87";
-    String openLink = "AA 55 00 04 B0 F2 01 02 58";
-    String closeLink = "AA 55 00 04 B0 F2 01 00 5A";
+    String openLink = "AA 55 00 04 B0 F2 02 02 57";
+    String closeLink = "AA 55 00 04 B0 F2 02 00 59";
     String openLunch = "AA 55 00 04 B0 F2 01 01 59";
     String closeLunch = "AA 55 00 04 B0 F2 01 00 5A";
     String signallingACK = "AA 55 00 04 80 F3 08 00 82";
-    String answer = "AA 55 00 16 00 F4 12 34 56 78 A0 88 12 34 56 FF FF FF FF FF FF FF FF FF FF FF 2A";
-    String request = "AA 55 00 16 00 F4 12 34 56 78 A0 0D 12 34 56 FF FF FF FF FF FF FF FF FF FF FF A5";
+    String answer = "AA 55 00 16 00 F4 12 34 56 78 A0 88 38 60 00 FF FF FF FF FF FF FF FF FF FF FF 2A";
+    String request = "AA 55 00 16 00 F4 12 34 56 78 A0 0D 38 60 00 FF FF FF FF FF FF FF FF FF FF FF A5";
     private String mSubstring;
-
-    public static void onReceived(final byte[] buffer, final int size, final int type) {
-        String hexStr = HexUtil.encodeHexStr(buffer, false, size);
-        String opLink = "AA 55 00 04 B0 F2 01 02 58";
-        String cloLink = "AA 55 00 04 B0 F2 01 00 5A";
-        String ackSta = "AA 55 00 05 80 F1 02 01 00 88";
-        String opLunch = "AA 55 00 04 B0 F2 01 01 59";
-        String ackSto = "AA 55 00 05 80 F1 02 02 00 87";
-        String cloLunch = "AA 55 00 04 B0 F2 01 00 5A";
-
-        boolean specialChar = isSpecialChar(hexStr);
-        boolean messyCode = isMessyCode(hexStr);
-        if (specialChar && messyCode) {
-            //Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
-            Log.e("包含", "包含");
-        } else if (!specialChar && !messyCode) {
-            //去掉16进制中的空格，不然计算或者比较数组越界
-            String ope = opLink.replaceAll(" ", "");
-            String clos = cloLink.replaceAll(" ", "");
-            String ackstar = ackSta.replaceAll(" ", "");
-            String opLun = opLunch.replaceAll(" ", "");
-            String acksto = ackSto.replaceAll(" ", "");
-            String cloLun = cloLunch.replaceAll(" ", "");
-
-            if (hexStr.equals(ope)) {
-                actived = true;
-                Log.e("接收到载波", "接收到载波");
-                mService.userPressDown();
-            } else if (hexStr.equals(clos)) {
-                Log.e("载波消失", "载波消失");
-                mService.userPressUp();
-            } else if (hexStr.equals(ackstar)) {
-                Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
-            }else if (hexStr.equals(opLun)) {
-                Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
-            }else if (hexStr.equals(acksto)) {
-                Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
-            }else if (hexStr.equals(cloLun)) {
-                Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
-            }
-        }
-    }
+    private static boolean bug = true;
 
     @Override
     protected void onDataReceived(final byte[] buffer, final int size, final int type) {
         runOnUiThread(new Runnable() {
             public void run() {
-                if (type == 232) {
-                    Log.i("testData", "ssssssss");
-                    Log.i("testDataSize", String.valueOf(size));
-                    mEncodeHexStr = HexUtil.encodeHexStr(buffer, false, size);
-                    mSubstring = mEncodeHexStr.substring(mEncodeHexStr.length() - 2, mEncodeHexStr.length());
-                    Log.i("hexStr", mEncodeHexStr + "    hexStr");
-                    Log.i("substring", mSubstring + "    substring");
+                try {
+                    if (type == 232) {
+                        if (mService != null) {
+                            Log.i("testData", "ssssssss");
+                            Log.i("testDataSize", String.valueOf(size));
+                            mEncodeHexStr = HexUtil.encodeHexStr(buffer, false, size);
+                            mSubstring = mEncodeHexStr.substring(mEncodeHexStr.length() - 2, mEncodeHexStr.length());
+                            Log.i("hexStr", mEncodeHexStr + "    hexStr");
+                            Log.i("substring", mSubstring + "    substring");
 
+                            boolean specialChar = isSpecialChar(mEncodeHexStr);
+                            boolean messyCode = isMessyCode(mEncodeHexStr);
+                            if (specialChar && messyCode) {
+                                Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
+                                Log.e("包含", "包含");
+                            } else if (!specialChar && !messyCode) {
+                                //Toast.makeText(getApplicationContext(),"不包含特殊字符",Toast.LENGTH_SHORT).show();
+                                Log.e("不包含", "不包含");
+                                //去掉16进制中的空格，不然计算活比较数组越界
+                                String open = openLink.replaceAll(" ", "");
+                                String close = closeLink.replaceAll(" ", "");
+                                String start = ackStart.replaceAll(" ", "");
+                                String stop = ackStop.replaceAll(" ", "");
+                                String openlunch = openLunch.replaceAll(" ", "");
+                                String answer1 = answer.replaceAll(" ", "");
+                                String request1 = request.replaceAll(" ", "");
+                                String closelunch = closeLunch.replaceAll(" ", "");
+                                String signallingACK1 = signallingACK.replaceAll(" ", "");
 
-                    boolean specialChar = isSpecialChar(mEncodeHexStr);
-                    boolean messyCode = isMessyCode(mEncodeHexStr);
-                    if (specialChar && messyCode) {
-                        Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
-                        Log.e("包含", "包含");
-                    } else if (!specialChar && !messyCode) {
-                        //Toast.makeText(getApplicationContext(),"不包含特殊字符",Toast.LENGTH_SHORT).show();
-                        Log.e("不包含", "不包含");
-                        //去掉16进制中的空格，不然计算活比较数组越界
-                        String open = openLink.replaceAll(" ", "");
-                        String close = closeLink.replaceAll(" ", "");
-                        String start = ackStart.replaceAll(" ", "");
-                        String stop = ackStop.replaceAll(" ", "");
-                        String openlunch = openLunch.replaceAll(" ", "");
-                        String answer1 = answer.replaceAll(" ", "");
-                        String request1 = request.replaceAll(" ", "");
-                        String closelunch = closeLunch.replaceAll(" ", "");
-                        String signallingACK1 = signallingACK.replaceAll(" ", "");
-
-                        if (mEncodeHexStr.equals(start)) {
-                            Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
-                        } else if (mEncodeHexStr.equals(stop)) {
-                            Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
-                        } else if (mEncodeHexStr.equals(open)) {
-                            actived = true;
-                            Log.e("接收到载波", "接收到载波");
-                            mService.userPressDown();
-                        } else if (mEncodeHexStr.equals(close)) {
-                            Log.e("载波消失", "载波消失");
-                            mService.userPressUp();
-                        } else if (mEncodeHexStr.equals(openlunch)) {
-                            Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
-                        } else if (mEncodeHexStr.equals(closelunch)) {
-                            Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
-                        } else if (mEncodeHexStr.equals(signallingACK1)) {
-                            Log.e("信令ack", "信令ack");
-                        } else if (mEncodeHexStr.equals(answer1)) {
-                            String req = "AA 55 00 04 80 F4 88 00 01";
-                            //sendHexString(req.replaceAll("\\s*", ""), "232");
-                        } else if (mEncodeHexStr.equals(request1)) {
-                            String req = "AA 55 00 04 80 F4 0D 00 01 7B";
-                            //sendHexString(req.replaceAll("\\s*", ""), "232");
-                        } else {
-                            //Toast.makeText(getApplicationContext(), "ACK校验失败", Toast.LENGTH_SHORT).show();
-                            //Log.e("ack", "ack对不上");
-                            return;
+                                if (mEncodeHexStr.equals(start)) {
+                                    Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
+                                } else if (mEncodeHexStr.equals(stop)) {
+                                    Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
+                                } else if (mEncodeHexStr.equals(open)) {
+                                    actived = true;
+                                    bug = false;
+                                    Log.e("接收到载波", "接收到载波");
+                                    mService.userPressDown();
+                                } else if (mEncodeHexStr.equals(close)) {
+                                    Log.e("载波消失", "载波消失");
+                                    bug = true;
+                                    actived = false;
+                                    mService.userPressUp();
+                                } else if (mEncodeHexStr.equals(openlunch)) {
+                                    Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
+                                } else if (mEncodeHexStr.equals(closelunch)) {
+                                    Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
+                                } else if (mEncodeHexStr.equals(signallingACK1)) {
+                                    Log.e("信令ack", "信令ack");
+                                    sendMsg("1001026","ok");
+                                } else if (mEncodeHexStr.equals(answer1)) {
+                                    String req = "AA 55 00 04 80 F4 88 00 01";
+                                    //sendHexString(req.replaceAll("\\s*", ""), "232");
+                                } else if (mEncodeHexStr.equals(request1)) {
+                                    String req = "AA 55 00 04 80 F4 0D 00 01 7B";
+                                    //sendHexString(req.replaceAll("\\s*", ""), "232");
+                                } else {
+                                    //Toast.makeText(getApplicationContext(), "ACK校验失败", Toast.LENGTH_SHORT).show();
+                                    //Log.e("ack", "ack对不上");
+                                    return;
                             /*for (int i = 0; i < 3; i++) {
                                 mHandler.postAtTime(new Runnable() {
                                     @Override
@@ -203,50 +181,15 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
                                     }
                                 }, 900);
                             }*/
+                                }
+                            }
                         }
                     }
+                } catch (Exception e) {
+
                 }
             }
         });
-    }
-
-    /**
-     * 校验数据
-     * @param buffer 接收到的数据
-     * @param size 数据长度
-     */
-    private boolean checkData(byte[] buffer, int size) {
-        String strData = HexUtil.encodeHexStr(buffer,false,size);
-        Log.i("TAGstrData收到的数据",strData);
-        /**
-         * 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-         * A 8 0 1 1 2 3 4 5 6  7  8  0  0  A  A
-         *
-         */
-        //total里存放的是累加和
-        int total = 0;
-        for (int i = 0;i<strData.length();i+=2){
-            //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
-            total = total + Integer.parseInt(strData.substring(i,i+2),16);
-        }
-        //noTotal为累加和取反加一
-        int noTotal = ~total +1;
-        Log.i("total",String.valueOf(noTotal));
-        String hex = Integer.toHexString(noTotal).toUpperCase();
-        Log.i("TAGhex",hex);
-        String key = hex.substring(hex.length()-2);
-        Log.i("TAG校验码key",key);
-        Log.i("TAGhex",key);
-        if (key.equals(strData.substring(strData.length()-2))){
-            Log.i("jiaoyan","校验成功");
-            return true;
-        }else {
-
-            Log.i("jiaoyan","校验失败");
-            return false;
-        }
-        //Log.i("total", hex.substring(hex.length()-2));
-
     }
 
     private static boolean isMessyCode(String strName) {
@@ -285,19 +228,6 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(str);
         return m.find();
-    }
-
-    /**
-     * 转化为int类型
-     *
-     * @param bytes
-     * @param size
-     * @return
-     */
-    private int toInt2(byte[] bytes, int size) {
-        return Integer.parseInt(new BigInteger((HexUtil.encodeHexStr(bytes, size).replace(
-                " ", ""
-        )), 16).toString(10));
     }
 
     /**
@@ -425,6 +355,32 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        //开始运行程序自动发送信令
+        String mDat = "AA 55 00 04 00 F1 03 01";
+        Log.e("mDat",mDat+"  开机自动发送");
+        String data = mDat.replaceAll(" ", "");
+        int total = 0;
+        for (int i = 0; i < data.length(); i += 2) {
+            //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+            total = total + Integer.parseInt(data.substring(i, i + 2), 16);
+        }
+        //noTotal为累加和取反加一
+        int noTotal = ~total + 1;
+        Log.i("total", String.valueOf(noTotal));
+        //负整数时，前面输入了多余的 FF ，没有去掉前面多余的 FF，按并双字节形式输出
+        //0xFF会像转换成0x000000FF后再进行位运算
+        String hex = Integer.toHexString(noTotal).toUpperCase();
+        Log.i("TAGhex", hex);
+        String key = hex.substring(hex.length() - 2);
+        Log.i("TAG校验码key", key);
+        Log.i("TAGhex", key);
+        //将求得的最后两位拼接到setup字符串后面
+        String s = data + key;
+        Log.e("setUp", data + "    00");
+        Log.e("开机自动发送", s + "    00");
+        sendHexString(s.replaceAll("\\s*", ""), "232");
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mTVConnect = (TextView) findViewById(R.id.tv_connection_lost);
@@ -554,7 +510,7 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
         getPermissions();
 
         String makeChecksum1 = makeChecksum(answer);
-        Log.e("123",makeChecksum1+"  123");
+        Log.e("123", makeChecksum1 + "  123");
     }
 
     public void setIsMap(boolean isMapOrNo) {
@@ -744,25 +700,26 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
         @Override
         public void onLocalUserTalkingChanged(User user, boolean talk) throws RemoteException {
             Log.e("actived", talk + "  123");
-            if (!actived) {
+            sendMsg("1001026","ok");
+            if (!actived && bug) {
                 if (talk && !next) {
                     //String dat = "A5 01 0C 21 01 00 2C";
                     String dat = "AA 55 00 04 00 F1 02 01 09";
                     sendHexString(dat.replaceAll("\\s*", ""), "232");
-                    Log.e("PTT_ON", "AA 55 00 04 00 F1 02 01 09" + "  七个值");
+                    Log.e("PTT_ON", "AA 55 00 04 00 F1 02 01 09" + "  七个值" + talk);
                     next = true;
-                    return;
+
                 } else if (!talk && next) {
                     String date = "AA 55 00 04 00 F1 02 02 08";
                     sendHexString(date.replaceAll("\\s*", ""), "232");
                     Log.e("PTT_OFF", "AA 55 00 04 00 F1 02 02 08" + "  七个值");
                     next = false;
-                    return;
                 }
+                actived = false;
+                refreshLcdChannel();
             }
-            actived = false;
-            refreshLcdChannel();
         }
+
 
         @Override
         public void onNewVolumeData(short volume) throws RemoteException {
@@ -1194,4 +1151,55 @@ public abstract class BaseActivity extends SePortActivity implements OnClickList
         builder.setPositiveButton(R.string.ok, null);
         builder.show();
     }
+
+    /*public static void onReceived(final byte[] buffer, final int size, final int type) {
+        try {
+            String hexStr = HexUtil.encodeHexStr(buffer, false, size);
+            String opLink = "AA 55 00 04 B0 F2 01 02 58";
+            String cloLink = "AA 55 00 04 B0 F2 01 00 5A";
+            String ackSta = "AA 55 00 05 80 F1 02 01 00 88";
+            String opLunch = "AA 55 00 04 B0 F2 01 01 59";
+            String ackSto = "AA 55 00 05 80 F1 02 02 00 87";
+            String cloLunch = "AA 55 00 04 B0 F2 01 00 5A";
+
+            boolean specialChar = isSpecialChar(hexStr);
+            boolean messyCode = isMessyCode(hexStr);
+            if (specialChar && messyCode) {
+                //Toast.makeText(getApplicationContext(), "包含特殊字符", Toast.LENGTH_SHORT).show();
+                Log.e("包含", "包含");
+            } else if (!specialChar && !messyCode) {
+                //去掉16进制中的空格，不然计算或者比较数组越界
+                String ope = opLink.replaceAll(" ", "");
+                String clos = cloLink.replaceAll(" ", "");
+                String ackstar = ackSta.replaceAll(" ", "");
+                String opLun = opLunch.replaceAll(" ", "");
+                String acksto = ackSto.replaceAll(" ", "");
+                String cloLun = cloLunch.replaceAll(" ", "");
+
+                if (mService != null) {
+                    if (hexStr.equals(ope)) {
+                        actived = true;
+                        bug = false;
+                        Log.e("接收到载波", "接收到载波");
+                        mService.userPressDown();
+                    } else if (hexStr.equals(clos)) {
+                        actived = false;
+                        bug = true;
+                        Log.e("载波消失", "载波消失");
+                        mService.userPressUp();
+                    } else if (hexStr.equals(ackstar)) {
+                        Log.e("PTT_ON 指令 ACK", "AA 55 1A 41 59 11" + "  七个值");
+                    } else if (hexStr.equals(opLun)) {
+                        Log.e("车台发射(打开 400M 对讲链路)", "车台发射(打开 400M 对讲链路)");
+                    } else if (hexStr.equals(acksto)) {
+                        Log.e("PTT_OFF 指令 ACK", " AA 55 1A 41 59 12" + "  七个值");
+                    } else if (hexStr.equals(cloLun)) {
+                        Log.e("车台发射(关闭 400M 对讲链路)", "车台发射(关闭 400M 对讲链路)");
+                    }
+                }
+            }
+        } catch (Exception e) {
+
+        }
+    }*/
 }
